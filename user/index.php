@@ -8,7 +8,7 @@
 
 <body>
     <?php include('component/_navbar.php') ?>
-    <main>
+    <!-- <main>
         <section class="about_us">
             <h1 id="aboutus">About Us</h1>
             <h1 id="dat">We are open from <br>
@@ -99,7 +99,7 @@
 
 
         </section>
-    </main>
+    </main> -->
     <?php include('component/_footer.php') ?>
 </body>
 
