@@ -1,0 +1,5 @@
+id | username | password
+S231A,Stephen,Drs123!
+A7687W,Abigale,Dra456!
+K878Q,Kiyoko,Nki789!
+N8786T,Naruto,qwerty
