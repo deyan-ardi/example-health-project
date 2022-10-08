@@ -5,7 +5,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $login = (new Login())->login();
+    $login = (new Tools())->login();
     die;
 }
 ?>
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta name="description" content="This is a login page">
 	<title>Login Page</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/admin/bootstrap.min.css">
 
 </head>
 
@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									</div>
 								</div>
 								<div class="mb-3">
+								<label class="mb-2 text-muted" for="password">Password</label>
 									<input id="password" type="password" class="form-control" name="password" required>
 								    <div class="invalid-feedback">
 								    	Password is required
@@ -61,6 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		</div>
 	</section>
 
-	<script src="assets/js/login.js"></script>
+	<script src="../assets/js/admin/login.js"></script>
 </body>
 </html>

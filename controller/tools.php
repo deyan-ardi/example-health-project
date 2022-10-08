@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+// defined('BASEPATH') or exit('No direct script access allowed');
 class Tools
 {
     public $username;
@@ -19,8 +19,7 @@ class Tools
         if ($this->verify()) {
             $_SESSION['username'] = $this->username;
             $_SESSION['password'] = $this->password;
-            $_SESSION['is_auth'] = true;
-
+            $_SESSION['user'] = true;
             header("Location: ../admin/administration.php");
             die();
         } else {
@@ -31,10 +30,12 @@ class Tools
 
     public function logout()
     {
+        if (isset($_POST['logout'])) {
         session_start();
         session_unset();
         header("Location: ../admin/login.php");
         die();
+        }
     }
 
     public function verify()
@@ -58,15 +59,26 @@ class Tools
     public function storeUser()
     {
         if (isset($_POST['save'])) {
+            $getData = file_get_contents("../database/users.txt");
+            $data = explode("\n", $getData);
+            foreach ($data as $row => $data) {
+                $row_user = explode(',', $data);
+                $dataUsername =@(strtolower($row_user[1]));  
+            }
+            $id = uniqid();
             $name = $_POST['username'];
             $password = $_POST['password'];
-        
-            $arrdata = array($name,$password);
+
+            if ($name !== $dataUsername) {
+            $arrdata = array($id,$name,$password);
             $fp = fopen('../database/users.txt', 'a+');
-        
             $create = fputcsv($fp, $arrdata);
             fclose($fp);
             header("Location: ../admin/administration.php");
+            }
+            else {
+                echo "<script type='text/javascript'>alert('same name');</script>";
+            }
         }
     }
 }

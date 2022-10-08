@@ -6,14 +6,10 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $login = (new Tools())->logout();
+    $store = (new Tools())->storeUser();
     die;
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-  $store = (new Tools())->storeUser();
-  die;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/admin/style.css">
     <meta name="theme-color" content="#712cf9">
   </head>
   <body>
@@ -107,8 +103,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <li>
               <?php
                 $logout= '
-                <form action='. $_SERVER['PHP_SELF'] .' method="post" accept-charset="utf-8">
-                <input type="submit" class="dropdown-item" value="Logout">
+                <form action='. $_SERVER['PHP_SELF'] .' method="post" accept-charset="utf-8" name="logout">
+                <input type="submit" class="dropdown-item" value="Logout" name="logout">
                 </form>';
                 echo $logout;
             ?>
@@ -159,13 +155,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
   <div class="container mt-3">
     <div class="card">
-      <div class="card-header">example</div>
-      <div class="card-body">
-        test
-      </div>
+      <div class="card-header">Input Administrator</div>
+      <div class="card-body p-5">
+							<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" class="needs-validation" name="save" novalidate="" autocomplete="off">
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="username">Username</label>
+									<input id="username" type="text" class="form-control" name="username" value="" required autofocus>
+									<div class="invalid-feedback">
+										Username is required
+									</div>
+								</div>
+								<div class="mb-3">
+								<label class="mb-2 text-muted" for="password">Password</label>
+									<input id="password" type="password" class="form-control" name="password" required>
+								    <div class="invalid-feedback">
+								    	Password is required
+							    	</div>
+								</div>
+								<div class="d-flex align-items-center">
+									<button type="submit" name="save" class="btn btn-primary ms-auto">
+										Save
+									</button>
+								</div>
+							</form>
+						</div>
     </div>
   </div>
 </main>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/admin/bootstrap.min.js"></script>
+<script src="../assets/js/admin/login.js"></script>
+
 </body>
 </html>
