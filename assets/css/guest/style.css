@@ -1,0 +1,206 @@
+#heading1{
+    text-align:center;
+    padding-top: 50px;
+    margin-left:130px;
+    vertical-align: bottom;
+    margin-top: 10px;
+    color: white;
+}
+header{
+    display: flex;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10%;
+}
+
+li,a {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-weight: 500;
+    font-size: 17px;
+    text-decoration: none;
+}
+.logo {
+    cursor: pointer;
+}
+.nav_link {
+    list-style: none;
+}
+ .nav_link li {
+    display: inline-block;
+    padding: 0px 20px;
+ }
+ .nav_link a {
+    transition:1s
+ }
+ .nav_link li a:hover {
+    color: #00889a;
+ } 
+
+ .about_us {
+    background-color: antiquewhite;
+    display: flow-root;
+ }
+ #aboutus{
+    text-align: left;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    margin-left: 20px;
+ }
+ #dat {
+    margin-left: 20px;
+    color: blue;
+
+ }
+ .about_img {
+    float: right;
+    
+ }
+ #paraboutus {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+   margin-left: 20px;
+ }
+ #last_p {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+   margin-left: 300px;
+ }
+ table{
+    margin: auto;
+    margin-bottom: 19px;
+    background-color: white;
+}
+th{
+    padding: 20px;
+}
+td{
+    padding:4px;
+}
+#td1{
+    font-family:Comic Sans MS;
+    font-size: 13px;
+}
+
+.container{
+    display: flow-root;
+    background-color: whitesmoke
+    margin
+
+    
+}
+
+#staffprofiles {
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    margin-left: 20px;
+    color: blue
+
+
+}
+#staff_name {
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    margin-left: 20px;
+}
+.staff_profiles{
+	display: flow-root;
+	width: 70%;
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-bottom: 40px;
+    background-color:#DEB887;
+}
+
+.staff_img{
+	width: auto;
+	height: 600px;
+    margin-left: 37%;
+    
+}
+.staff_description p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14 ;
+    justify-content: space-around;
+}
+
+.service{
+    background-color: antiquewhite;
+}
+#service_area {
+    margin-top: 50px;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    margin-left: 20px;
+    
+}
+
+.google{
+    margin-left: 40%;
+}
+
+#service_p1 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    margin-left: 35%;
+
+}
+
+body {
+    margin:auto;
+    background-color: white;
+}
+
+#bookingform {
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    margin-left: 20px;
+
+}
+form {
+	display: flex;
+    background-color: antiquewhite;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    margin-left: 20px;
+
+}
+input{
+	font-size: 26px;
+	line-height: 35px;
+	width: 300px;
+	border: none;
+	border-bottom: 2px solid #blue;
+}
+.btn-form{
+	width: 200px;
+	height: 60px;
+	border-radius: 8px;
+	color: black;
+    background: white;
+	font-size: 28px;
+    margin-left: 45%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+
+}
+.btn-form a:hover {
+    color: #00889a;
+
+}
+footer {
+    overflow: auto;
+    clear: both;
+    position: relative;     
+    background-color: black;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}

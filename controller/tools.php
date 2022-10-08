@@ -1,6 +1,6 @@
 <?php
-
-class Login
+defined('BASEPATH') or exit('No direct script access allowed');
+class Tools
 {
     public $username;
     public $password;
@@ -55,4 +55,3 @@ class Login
         return false;
     }
 }
-
