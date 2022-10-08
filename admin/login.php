@@ -30,11 +30,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					</div>
 					<div class="card shadow-lg">
 						<div class="card-body p-5">
+						<div class="text-center mb-2">
+						<?php
+						if (isset($_SESSION['message'])) 
+						{
+							echo $_SESSION['message'];
+						}	
+						?>
+					</div>
 							<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
 							<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" class="needs-validation" novalidate="" autocomplete="off">
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="username">Username</label>
-									<input id="username" type="text" class="form-control" name="username" value="" required autofocus>
+									<input id="username" type="text" class="form-control text-capitalize" name="username" value="" required autofocus>
 									<div class="invalid-feedback">
 										Username is required
 									</div>

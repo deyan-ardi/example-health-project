@@ -7,11 +7,13 @@ class Tools
     public $u;
     public $p;
     public $data;
+    public $message;
 
     public function __construct()
     {
         $this->username = @htmlentities(strtolower($_POST['username']));
         $this->password = @htmlentities(strtolower($_POST['password']));
+        $_SESSION['message'] = '';
     }
 
     public function login()
@@ -23,6 +25,14 @@ class Tools
             header("Location: ../admin/administration.php");
             die();
         } else {
+            $id = uniqid();
+            $name = $_POST['username'];
+            $date = date("l, F d Y");
+            $arrdata = array($id,$name,$date);
+            $fp = fopen('../database/accessattempts.txt', 'a+');
+            $create = fputcsv($fp, $arrdata);
+            fclose($fp);
+            $_SESSION['message'] = '<div class="alert alert-danger"><p>Login failed, check your input</p></div>';
             header("Location: ../admin/login.php");
             die;
         }
@@ -61,23 +71,31 @@ class Tools
         if (isset($_POST['save'])) {
             $getData = file_get_contents("../database/users.txt");
             $data = explode("\n", $getData);
-            foreach ($data as $row => $data) {
+            $status = false;
+            foreach($data as $row => $data){
                 $row_user = explode(',', $data);
-                $dataUsername =@(strtolower($row_user[1]));  
+                $dataUsername = strtolower($row_user[1]);
+                if($dataUsername == strtolower($_POST['username'])){
+                    $status = true;
+                    break;
+                }
             }
-            $id = uniqid();
-            $name = $_POST['username'];
-            $password = $_POST['password'];
-
-            if ($name !== $dataUsername) {
-            $arrdata = array($id,$name,$password);
-            $fp = fopen('../database/users.txt', 'a+');
-            $create = fputcsv($fp, $arrdata);
-            fclose($fp);
-            header("Location: ../admin/administration.php");
+            if(!$status){
+                $id = uniqid();
+                $name = $_POST['username'];
+                $password = $_POST['password'];
+                $date = date("l, jS F Y");
+                $arrdata = array($id,ucfirst($name),$password,$date);
+                $fp = fopen('../database/users.txt', 'a+');
+                $create = fputcsv($fp, $arrdata);
+                fclose($fp);
+                $_SESSION['message'] = '<div class="alert alert-success"><p>success, successfully input data into data record</p></div>';
+                header("Location: ../admin/administration.php");
             }
             else {
-                echo "<script type='text/javascript'>alert('same name');</script>";
+                $name = $_POST['username'];
+                $_SESSION['message'] = '<div class="alert alert-danger"><p>oh snap! '.$name.' is already in the record data</p></div>';
+                header("Location: ../admin/administration.php");
             }
         }
     }
