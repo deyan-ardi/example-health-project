@@ -21,10 +21,10 @@ class Tools
             $_SESSION['password'] = $this->password;
             $_SESSION['is_auth'] = true;
 
-            header("Location: administration.php");
+            header("Location: ../admin/administration.php");
             die();
         } else {
-            header("Location: login.php");
+            header("Location: ../admin/login.php");
             die;
         }
     }
@@ -33,13 +33,13 @@ class Tools
     {
         session_start();
         session_unset();
-        header("Location: login.php");
+        header("Location: ../admin/login.php");
         die();
     }
 
     public function verify()
     {
-        $d = file_get_contents("users.txt");
+        $d = file_get_contents("../database/users.txt");
         $data = explode("\n", $d);
 
         foreach ($data as $row => $data) {
@@ -53,5 +53,20 @@ class Tools
             }
         }
         return false;
+    }
+
+    public function storeUser()
+    {
+        if (isset($_POST['save'])) {
+            $name = $_POST['username'];
+            $password = $_POST['password'];
+        
+            $arrdata = array($name,$password);
+            $fp = fopen('../database/users.txt', 'a+');
+        
+            $create = fputcsv($fp, $arrdata);
+            fclose($fp);
+            header("Location: ../admin/administration.php");
+        }
     }
 }
