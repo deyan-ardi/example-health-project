@@ -1,12 +1,18 @@
 <?php
-require_once 'tools.php';
+require_once '../controller/tools.php';
 
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $login = (new Login())->logout();
+    $login = (new Tools())->logout();
     die;
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+  $store = (new Tools())->storeUser();
+  die;
 }
 ?>
 <!DOCTYPE html>
