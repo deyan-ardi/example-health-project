@@ -1,8 +1,13 @@
  <header>
-     <img src="../assets/img/logo.jpeg" height="180" width="250" align="left" alt="logo">
-     <h1 id="heading1">RUSSEL STREET MEDICAL <br> </h1>
+     <div class="brand">
+         <div class="row">
+             <a href="#"><img src="../assets/img/logo-text-less.jpeg" height="60px" alt="logo"></a>
+             <h4>RUSSEL STREET MEDICAL CENTRE</h4>
+         </div>
+     </div>
+
      <nav>
-         <ul class="nav_link">
+         <ul>
              <li><a href="index">HOME</a></li>
              <li><a href="booking">BOOKING</a></li>
          </ul>
