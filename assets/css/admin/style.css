@@ -331,7 +331,7 @@ main .recent-order table {
   text-align: center;
   box-shadow: var(--box-shadow);
   transition: all 300ms ease;
-
+  
 }
 
 main .recent-order table thead th
@@ -345,9 +345,10 @@ main .recent-order table thead th
 main .recent-order table tbody {
   display: block;
   height: 300px; 
-  overflow: auto;
+  overflow-y: scroll;
   scrollbar-color: #d4aa70 #e4e4e4;
 }
+
 main .recent-order table thead, tbody tr {
   display: table;
   width: 100%;

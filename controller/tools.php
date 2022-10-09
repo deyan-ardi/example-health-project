@@ -22,7 +22,7 @@ class Tools
             $_SESSION['username'] = $this->username;
             $_SESSION['password'] = $this->password;
             $_SESSION['user'] = true;
-            header("Location: ../admin/administration.php");
+            header("Location: administration?page=dashboard");
             die();
         } else {
             $id = uniqid();
@@ -83,8 +83,8 @@ class Tools
             if (empty($name = $_POST['username']) || empty($password = $_POST['password']) || empty($password = $_POST['confirm_password'])) {
                 $_SESSION['message'] = '<div class="alert alert-danger">All fields cannot be empty</div>';
                 header("Location: administration?page=manage_admin");
-            } else{
-            
+            } 
+            else{
             if(!$status){
                 if ($_POST["password"] === $_POST["confirm_password"]) {
                     $id = uniqid();

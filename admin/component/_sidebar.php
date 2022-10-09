@@ -19,7 +19,7 @@
             <div class="top">
                 <div class="logo">
                     <img src="../assets/img/logo-text-less.png" alt="logo" width="100">
-                    <h3>Russel Street Medical</h3>
+                    <h3>Russel Street Medical Centre</h3>
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">

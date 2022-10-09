@@ -47,7 +47,6 @@
                             <th>Patient</th>
                             <th>Reason</th>
                             <th>Booking Date</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
