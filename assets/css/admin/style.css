@@ -316,6 +316,7 @@ main .informations small {
 
 main .recent-order {
   margin-top: 2rem;
+  height: 400px; overflow: auto
 }
 
 main .recent-order h2 {
@@ -330,6 +331,15 @@ main .recent-order table {
   text-align: center;
   box-shadow: var(--box-shadow);
   transition: all 300ms ease;
+
+}
+
+main .recent-order table thead th
+{
+  background: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 }
 
 main .recent-order table .text-right {
@@ -554,12 +564,11 @@ main .recent-order a {
     transition: translateX(-50%);
     margin: 2rem 0 0 8.8rem;
     padding-top: 5rem;
-    
   }
 
+
   main .recent-order table {
-    width: 80vw;
-    
+    width: 80vw; 
   }
 
   main table thead tr th:last-child,

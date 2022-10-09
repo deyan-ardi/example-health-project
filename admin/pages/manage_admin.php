@@ -1,6 +1,6 @@
 <main>
             <h1>Manage Administrators</h1>
-            <div class="recent-order">
+            <div class="recent-order" style="">
                 <table>
                     <thead>
                         <tr class="text-right">
@@ -11,7 +11,7 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody >
+                    <tbody>
 					<?php
 						$file_to_read = fopen("../database/users.txt","r");                 
 						if($file_to_read !== FALSE){                     
