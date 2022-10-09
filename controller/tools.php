@@ -56,7 +56,7 @@ class Tools
         foreach ($data as $row => $data) {
 
             $row_user = explode(',', $data);
-            $this->u = @(strtolower($row_user[1]));
+            $this->u = @trim(strtolower($row_user[1]),'"');
             $this->p = @trim(strtolower($row_user[2]), "\r");
 
             if (strcmp($this->u, $this->username) === 0 && strcmp($this->p, $this->password) === 0) {
@@ -90,9 +90,10 @@ class Tools
                         $name = $_POST['username'];
                         $password = $_POST['password'];
                         $date = date("Y-m-d H:i:s");
-                        $arrdata = array($id, ucfirst($name), $password, $date);
+                        $arrdata = array($id, $name, $password, $date);
                         $fp = fopen('../database/users.txt', 'a+');
                         $create = fputcsv($fp, $arrdata);
+                                       
                         fclose($fp);
                         $_SESSION['message'] = '<div class="alert alert-success">Success, successfully input data into data record</div>';
                         header("Location: administration?page=manage_admin");
