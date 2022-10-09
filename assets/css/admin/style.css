@@ -316,8 +316,6 @@ main .informations small {
 
 main .recent-order {
   margin-top: 2rem;
-  height: 400px; overflow: auto;
-  scrollbar-color: #d4aa70 #e4e4e4;
 
 }
 
@@ -344,6 +342,22 @@ main .recent-order table thead th
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 }
 
+main .recent-order table tbody {
+  display: block;
+  height: 300px; 
+  overflow: auto;
+  scrollbar-color: #d4aa70 #e4e4e4;
+}
+main .recent-order table thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+main .recent-order table tbody tr td {
+  table-layout: fixed;
+
+}
 main .recent-order table .text-right {
   text-align: left;
 }
@@ -725,16 +739,16 @@ main .recent-order a {
   --bs-alert-border-color: #badbcc;
 }
 
-main .recent-order::-webkit-scrollbar {
-  width: 16px;
+main .recent-order table tbody::-webkit-scrollbar {
+  width: 6px;
 }
 
-main .recent-order::-webkit-scrollbar-track {
+main .recent-order table tbody::-webkit-scrollbar-track {
   background-color: #e4e4e4;
   border-radius: 100px;
 }
 
-main .recent-order::-webkit-scrollbar-thumb {
+main .recent-order table tbody::-webkit-scrollbar-thumb {
   background-color: #00aaff;
   border-radius: 100px;
 }

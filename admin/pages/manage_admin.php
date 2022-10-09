@@ -8,7 +8,6 @@
                             <th>Username</th>
                             <th>Password</th>
                             <th>Created At</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
