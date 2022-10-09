@@ -5,19 +5,20 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $login = (new Tools())->login();
-    die;
+	$login = (new Tools())->login();
+	die;
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta name="description" content="This is a login page">
-	<title>Login Page</title>
-    <link rel="stylesheet" href="../assets/css/admin/bootstrap.min.css">
-
+	<title>RUSSEL STREET MEDICAL CENTRE - LOGIN PAGE</title>
+	<link rel="stylesheet" href="../assets/css/admin/bootstrap.min.css">
+	<link rel="shortcut icon" href="../assets/img/logo.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -26,18 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<div class="row justify-content-sm-center h-100">
 				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
 					<div class="text-center my-5">
-					<img src="../assets/img/logo-text-less.png" alt="logo" width="100">
+						<img src="../assets/img/logo-text-less.png" alt="logo" width="100">
 					</div>
 					<div class="card shadow-lg">
 						<div class="card-body p-5">
-						<div class="text-center mb-2">
-						<?php
-						if (isset($_SESSION['message'])) 
-						{
-							echo $_SESSION['message'];
-						}	
-						?>
-					</div>
+							<div class="text-center mb-2">
+								<?php
+								if (isset($_SESSION['message'])) {
+									echo $_SESSION['message'];
+								}
+								?>
+							</div>
 							<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
 							<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" class="needs-validation" novalidate="" autocomplete="off">
 								<div class="mb-3">
@@ -48,11 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									</div>
 								</div>
 								<div class="mb-3">
-								<label class="mb-2 text-muted" for="password">Password</label>
+									<label class="mb-2 text-muted" for="password">Password</label>
 									<input id="password" type="password" class="form-control" name="password" required>
-								    <div class="invalid-feedback">
-								    	Password is required
-							    	</div>
+									<div class="invalid-feedback">
+										Password is required
+									</div>
 								</div>
 								<div class="d-flex align-items-center">
 									<button type="submit" class="btn btn-primary ms-auto">
@@ -72,4 +72,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	<script src="../assets/js/admin/login.js"></script>
 </body>
+
 </html>

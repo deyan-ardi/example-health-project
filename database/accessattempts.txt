@@ -1,7 +1,2 @@
-
-63413a28ef0c6,budi,"Saturday, October 08 2022"
-63420191e1e00,deyan,"Saturday, October 08 2022"
-63421b6f7b310,qwerewq,"Sunday, October 09 2022"
-6342c31451636,"arya budi","Sunday, October 09 2022"
-6342c6b4bc26b,"artana arya","Sunday, October 09 2022"
-6342cdfee7fc6,deyan,"Sunday, October 09 2022"
+6342f07d92d1e,"deyan ardi","2022-10-09 16:02:05"
+6342f08c487cd,"kadek ardi","2022-10-09 16:02:20"

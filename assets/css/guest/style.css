@@ -1,140 +1,597 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-
-html, body {
-    font-family: "Montserrat", sans-serif;
-    background-color: aliceblue;
+/* Nav Bar  */
+#nav-bar {
+    height: auto;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: #4C6793;
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
-/* NAVBAR STYLING STARTS */
-.navbar {
-    padding: 10px;
-    background-color: #000;
-    color: #fff;
-}
-
-.navbar-content {
+.nav-bar {
+    background-color: #4C6793;
+    left: 0;
+    top: 0;
+    padding: 1rem 5rem;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.container {
-    padding-left: 50px;
-    padding-right: 50px;
+.nav-bar .brand a {
+    font-family: 'Flash Back - Demo', sans-serif;
+    font-size: 3rem;
+    color: white;
 }
 
-.nav-links a {
-    color: #fff;
-}
-
-/* LOGO */
-.logo {
-    font-size: 32px;
-}
-
-.logo .logo-image {
+.nav-bar .brand .logo-image {
     float: left;
 }
 
-.logo .logo-text {
+.nav-bar .brand .logo-text {
     float: right;
+    color: #fff;
     font-size: 15px;
     padding: 20px;
 }
 
-/* NAVBAR MENU */
-.menu {
+.nav-bar .nav-list {
     display: flex;
-    gap: 1em;
-    font-size: 18px;
+    align-items: center;
+    justify-content: center;
 }
 
-.menu li:hover {
-    background-color: #000;
-    border-radius: 5px;
-    transition: 0.3s ease;
+.nav-bar .nav-list .hamburger {
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    transition: .3s ease transform;
+    cursor: pointer;
 }
 
-.menu li {
-    padding: 5px 14px;
+.nav-bar .nav-list .hamburger.active {
+    transform: rotate(360deg);
 }
 
-.menu li a {
-    font-weight: bold;
-    font-size: 15px;
+.nav-bar .nav-list .hamburger.active .bar:before {
+    top: 0;
+    transform: rotate(45deg);
 }
 
-.menu li a:link {
+.nav-bar .nav-list .hamburger.active .bar:after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.nav-bar .nav-list .hamburger.active .bar {
+    background-color: transparent;
+}
+
+.nav-bar .nav-list .hamburger .bar {
+    height: 2px;
+    width: 15px;
+    background-color: white;
+    position: relative;
+    display: flex;
+}
+
+.nav-bar .nav-list .hamburger .bar::before,
+.nav-bar .nav-list .hamburger .bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    transition: .3s ease all;
+}
+
+.nav-bar .nav-list .hamburger .bar::before {
+    top: 8px;
+}
+
+.nav-bar .nav-list .hamburger .bar::after {
+    bottom: 8px;
+}
+
+.nav-bar .nav-list ul {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(46, 45, 45);
+    padding: 5rem 0;
+    transform: translateY(-100%);
+    transition: .3s ease transform;
+    text-align: center;
+    z-index: -1;
+}
+
+.nav-bar .nav-list ul li {
+    list-style: none;
+    display: block;
+    position: relative;
+}
+
+.nav-bar .nav-list ul li:hover:after {
+    transform: translateX(-50%) scale(1);
+}
+
+.nav-bar .nav-list ul li:after {
+    content: '';
+    position: absolute;
+    width: 5rem;
+    height: .2rem;
+    background-color: white;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    bottom: 0;
+    transition: .3s ease transform;
+}
+
+.nav-bar .nav-list ul li a {
+    font-size: 1.8rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    display: block;
+    letter-spacing: .15rem;
+    padding: 2rem 3rem;
+}
+
+.nav-bar .nav-list ul li a:link {
     color: #fff;
 }
 
-.menu li a:visited {
+.nav-bar .nav-list ul li a:visited {
     color: #eaeaea;
 }
 
-.menu li a:hover {
+.nav-bar .nav-list ul li a:hover {
     color: #00AAFF;
 }
 
-/*RESPONSIVE NAVBAR MENU STARTS*/
-/* CHECKBOX HACK */
-input[type=checkbox] {
-    display: none;
+
+.nav-bar .nav-list.open ul {
+    transform: translateY(90px);
 }
 
-/*HAMBURGER MENU*/
-.hamburger {
-    display: none;
-    font-size: 24px;
-    user-select: none;
+/* End Nav Bar */
+
+/* web Section */
+.web {
+    min-height: 80vh;
+    width: 100%;
+    padding-top: 50px;
+    justify-content: center;
+    background-color: #7FBCD2;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
 }
 
-/* APPLYING MEDIA QUERIES */
-@media (max-width: 768px) {
-    .menu {
-        display: none;
-        position: absolute;
-        background-color: #000;
-        right: 0;
-        left: 0;
-        text-align: center;
-        padding: 16px 0;
-    }
-
-    .menu li:hover {
-        display: inline-block;
-        background-color: #000;
-        transition: 0.3s ease;
-    }
-
-    .menu li+li {
-        margin-top: 12px;
-    }
-
-    input[type=checkbox]:checked~.menu {
-        display: block;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .container {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+.web .web-info {
+    width: 100%;
+    text-align: center;
 }
+
+.web .web-info .web-info-heading {
+    font-size: 5rem;
+    font-weight: 500;
+    color: whitesmoke;
+}
+
+.web .web-info .web-info-subheading {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: .7rem;
+    color: whitesmoke;
+}
+
+.web .web-info .web-info-button {
+    margin-top: 30px;
+    padding: 2rem 5rem;
+    display: inline-block;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    letter-spacing: .6rem;
+    background-color: #4C6793;
+}
+
+.web .web-img {
+    height: auto;
+    width: 50%;
+    margin-bottom: 3rem;
+}
+
+.web .web-img img {
+    height: 100%;
+    width: 100%;
+}
+
+/* End web Section */
+
+/* web Section */
+.booking-web {
+    min-height: 80vh;
+    width: 100%;
+    padding-top: 50px;
+    justify-content: center;
+    background-color: #7FBCD2;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking-web .booking-web-info {
+    width: 100%;
+    text-align: center;
+}
+
+.booking-web .booking-web-info .booking-web-info-heading {
+    font-size: 5rem;
+    font-weight: 500;
+    color: whitesmoke;
+}
+
+.booking-web .booking-web-info .booking-web-info-subheading {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: .7rem;
+    color: whitesmoke;
+}
+
+.booking-web .booking-web-info .booking-web-info-button {
+    margin-top: 30px;
+    padding: 2rem 5rem;
+    display: inline-block;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    letter-spacing: .6rem;
+    background-color: #4C6793;
+}
+
+/* End web Section */
+/* About Section  */
+.about {
+    width: 100%;
+    min-height: 50vh;
+    padding: 10rem 5rem;
+    flex-direction: column;
+}
+
+.about .about-info {
+    text-align: justify;
+}
+
+.about .about-info .about-info-heading {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    color: #4C6793;
+}
+
+.about .about-info .about-info-desc {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-top: 10px;
+}
+
+.about .about-info .about-info-button {
+    padding: 1.6rem 2.6rem;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.548);
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.about .about-img {
+    margin-top: 50px;
+    display: block;
+}
+
+.about .about-img .about-img-wrapper {
+    margin-top: 50px;
+    height: auto;
+    max-width: 500px;
+    position: relative;
+    display: inline-block;
+}
+
+.about .about-img .about-img-wrapper img {
+    height: 100%;
+    width: 100%;
+}
+
+.about .about-img .about-img-wrapper::after {
+    position: absolute;
+    content: '';
+    right: -5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 120%;
+    background-color: rgba(34, 33, 33, 0.158);
+    z-index: -1;
+}
+
+.about .dt-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.about .dt-table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* End About Section  */
+
+/* Booking Form Section  */
+.booking-form {
+    width: 100%;
+    min-height: 50vh;
+    padding: 10rem 5rem;
+    flex-direction: column;
+}
+
+.booking-form .booking-form-info {
+    text-align: left;
+}
+
+.booking-form .booking-form-info .booking-form-info-heading {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    color: #4C6793;
+}
+
+.booking-form .booking-form-info .booking-form-info-desc {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-top: 10px;
+}
+
+.booking-form .booking-form-info .booking-form-info-button {
+    margin-top: 30px;
+    padding: 2rem 5rem;
+    display: inline-block;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    letter-spacing: .6rem;
+    background-color: #4C6793;
+}
+
+.booking-form .booking-form-img {
+    margin-top: 50px;
+    display: block;
+}
+
+.booking-form .booking-form-img .booking-form-img-wrapper {
+    margin-top: 50px;
+    height: auto;
+    max-width: 500px;
+    position: relative;
+    display: inline-block;
+}
+
+.booking-form .booking-form-img .booking-form-img-wrapper img {
+    height: 100%;
+    width: 100%;
+}
+
+.booking-form .booking-form-img .booking-form-img-wrapper::after {
+    position: absolute;
+    content: '';
+    right: -5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 120%;
+    background-color: rgba(34, 33, 33, 0.158);
+    z-index: -1;
+}
+
+
+/* End Booking Form Section  */
+
+/* Services section  */
+.services {
+    flex-direction: column;
+    min-height: 60vh;
+    padding: 10rem 5rem;
+    background-color: #FFF4CF;
+}
+
+.services .services-header {
+    width: 100%;
+    text-align: center;
+}
+
+.services .services-header .services-header-heading {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #4C6793;
+}
+
+.services .services-header .services-header-desc {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-top: 20px;
+}
+
+.services .services-info {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.services .services-info .service {
+    width: 100%;
+    min-height: 500px;
+    position: relative;
+    transition: .3s ease transform;
+    margin: 5px;
+}
+
+.services .services-info .service .service-card {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: .3s ease transform;
+    display: block;
+}
+
+.services .services-info .service .service-card .service-front,
+.services .services-info .service .service-card .service-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #7FBCD2;
+    padding: 10px;
+}
+
+.services .services-info .service .service-card .service-back {
+    transform: rotateY(180deg);
+}
+
+.services .services-info .service .service-card .service-front i {
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.services .services-info .service .service-card .service-front .service-front-heading,
+.services .services-info .service .service-card .service-back .service-back-heading {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    color: #fff;
+
+}
+
+.services .services-info .service:hover .service-card {
+    transform: rotateY(180deg);
+}
+
+.services .services-info .service .service-card .service-back .service-back-desc {
+    font-size: 1.4rem;
+    margin-top: 10px;
+    text-align: justify;
+    color: #fff;
+}
+
+.services .services-info .service:nth-child(2) .service-card .service-front {
+    background-size: cover;
+    position: relative;
+    color: #fff;
+}
+
+.services .services-info .service:nth-child(2) .service-card .service-front::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    z-index: -1;
+}
+
+.services .services-info .service:nth-child(2) .service-card .service-front i {
+    color: #fff;
+}
+
+/* End Services section  */
+
+/* Contact Section  */
+.contact {
+    min-height: 10vh;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    padding: 3rem 2rem;
+}
+
+.contact .contact-heading {
+    color: black;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.contact .contact-button {
+    padding: 2rem 3rem;
+    display: inline-block;
+    background-color: #4C6793;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: .2rem;
+    margin-top: 10px;
+    color: whitesmoke;
+    transition: .3s ease background-color;
+}
+
+.contact .contact-button:hover {
+    background-color: black;
+}
+
+/* End Contact Section  */
+
+/* Footer section  */
+.footer {
+    min-height: 20vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    flex-direction: column;
+    text-align: center;
+    padding: 5rem;
+}
+
+.footer .footer-contact {
+    padding: 20px;
+}
+
+.footer .footer-contact .footer-contact-heading {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.footer .footer-contact .footer-contact-info {
+    font-size: 1.4rem;
+    padding-top: 10px;
+    letter-spacing: .2rem;
+}
+
+/* End Footer section  */
