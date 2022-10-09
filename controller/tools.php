@@ -80,6 +80,11 @@ class Tools
                     break;
                 }
             }
+            if (empty($name = $_POST['username']) || empty($password = $_POST['password']) || empty($password = $_POST['confirm_password'])) {
+                $_SESSION['message'] = '<div class="alert alert-danger">All fields cannot be empty</div>';
+                header("Location: administration?page=manage_admin");
+            } else{
+            
             if(!$status){
                 if ($_POST["password"] === $_POST["confirm_password"]) {
                     $id = uniqid();
@@ -104,6 +109,7 @@ class Tools
                 header("Location: administration?page=manage_admin");
             }
         }
+    }
     }
 
 }
