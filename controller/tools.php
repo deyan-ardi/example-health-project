@@ -27,7 +27,7 @@ class Tools
         } else {
             $id = uniqid();
             $name = $_POST['username'];
-            $date = date("l, F d Y");
+            $date = date("Y-m-d H:i:s");
             $arrdata = array($id,$name,$date);
             $fp = fopen('../database/accessattempts.txt', 'a+');
             $create = fputcsv($fp, $arrdata);
@@ -90,7 +90,7 @@ class Tools
                     $id = uniqid();
                     $name = $_POST['username'];
                     $password = $_POST['password'];
-                    $date = date("l, jS F Y");
+                    $date = date("Y-m-d H:i:s");
                     $arrdata = array($id,ucfirst($name),$password,$date);
                     $fp = fopen('../database/users.txt', 'a+');
                     $create = fputcsv($fp, $arrdata);
