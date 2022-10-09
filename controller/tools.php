@@ -32,7 +32,7 @@ class Tools
             $fp = fopen('../database/accessattempts.txt', 'a+');
             $create = fputcsv($fp, $arrdata);
             fclose($fp);
-            $_SESSION['message'] = '<div class="alert alert-danger"><p>Login failed, check your input</p></div>';
+            $_SESSION['message'] = '<div class="alert alert-danger">Login failed, check your input</div>';
             header("Location: ../admin/login.php");
             die;
         }
@@ -81,22 +81,29 @@ class Tools
                 }
             }
             if(!$status){
-                $id = uniqid();
-                $name = $_POST['username'];
-                $password = $_POST['password'];
-                $date = date("l, jS F Y");
-                $arrdata = array($id,ucfirst($name),$password,$date);
-                $fp = fopen('../database/users.txt', 'a+');
-                $create = fputcsv($fp, $arrdata);
-                fclose($fp);
-                $_SESSION['message'] = '<div class="alert alert-success"><p>success, successfully input data into data record</p></div>';
-                header("Location: ../admin/administration.php");
+                if ($_POST["password"] === $_POST["confirm_password"]) {
+                    $id = uniqid();
+                    $name = $_POST['username'];
+                    $password = $_POST['password'];
+                    $date = date("l, jS F Y");
+                    $arrdata = array($id,ucfirst($name),$password,$date);
+                    $fp = fopen('../database/users.txt', 'a+');
+                    $create = fputcsv($fp, $arrdata);
+                    fclose($fp);
+                    $_SESSION['message'] = '<div class="alert alert-success">Success, successfully input data into data record</div>';
+                    header("Location: administration?page=manage_admin");
+                 }
+                 else {
+                    $_SESSION['message'] = '<div class="alert alert-danger">Failed, the password confirmation does not match</div>';
+                    header("Location: administration?page=manage_admin");
+                 }
             }
             else {
                 $name = $_POST['username'];
-                $_SESSION['message'] = '<div class="alert alert-danger"><p>oh snap! '.$name.' is already in the record data</p></div>';
-                header("Location: ../admin/administration.php");
+                $_SESSION['message'] = '<div class="alert alert-danger">Oh snap! '.$name.' is already in the record data</div>';
+                header("Location: administration?page=manage_admin");
             }
         }
     }
+
 }
