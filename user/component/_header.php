@@ -11,6 +11,3 @@
     <link rel="stylesheet" href="../assets/css/guest/responsive.css" />
     <link rel="shortcut icon" href="../assets/img/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/guest/radio-pill.css">
-
-    <!-- Careousel CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">

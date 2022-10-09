@@ -79,7 +79,7 @@
     </div>
     <div class="booking-form-img">
       <div class="booking-form-img-wrapper">
-        <img src="../assets/guest/img/aboutus.png" alt="" />
+        <img src="../assets/img/aboutus.png" alt="" />
       </div>
     </div>
   </section>

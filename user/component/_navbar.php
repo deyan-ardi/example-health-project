@@ -4,7 +4,7 @@
     <header class="nav-bar">
         <div class="brand">
             <a href="#web">
-                <img src="../assets/guest/img/logo-text-less.png" alt="Logo" width="80px" class="logo-image" />
+                <img src="../assets/img/logo-text-less.png" alt="Logo" width="80px" class="logo-image" />
             </a>
             <p class="logo-text">
                 RUSSEL STREET <br />

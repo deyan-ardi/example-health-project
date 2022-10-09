@@ -13,7 +13,3 @@
 
   <!-- General JS -->
   <script src="../assets/js/guest/app.js"></script>
-
-  <!-- Careousel JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
