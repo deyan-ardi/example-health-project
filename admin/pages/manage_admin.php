@@ -49,13 +49,13 @@
                 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" class="needs-validation" name="save" novalidate="" autocomplete="off">
                     <div class="right">
                     <label for="username">Username</label>
-                    <input type="text" class="input" name="username" id="username"/>
+                    <input type="text" class="input text-capitalize" name="username" id="username"/>
 
                     <label for="password">Password</label>
-                    <input type="text" class="input" name="password" id="password"/>
+                    <input type="password" class="input" name="password" id="password"/>
 
                     <label for="confirm_password">Confirm Password</label>
-                    <input type="text" class="input" name="confirm_password" id="confirm_password"/>
+                    <input type="password" class="input" name="confirm_password" id="confirm_password"/>
 
                     <button class="button-two" type="submit" name="save">Add</button>
 
