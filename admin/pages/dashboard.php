@@ -37,8 +37,9 @@
                     </div>
                 </div>
             </div>
-            <div class="recent-order">
-                <h2>Recent Services Booking</h2>
+            <br><br>
+            <h2>Recent Services Booking</h2>
+            <div class="recent-order" style="margin-top:0.5rem;">
                 <table>
                     <thead>
                         <tr class="text-right">
