@@ -26,7 +26,10 @@ $date = new generateDateFormatService;
                         for ($i = 0; $i < count($data); $i++) {
                             if ($i == 3) {
                                 echo "<td class='text-right'>" . $date->format($data[$i]) . "</td>";
-                            } else {
+                            } elseif($i == 1) {
+                                echo "<td class='text-right text-capitalize'>" . $data[$i] . "</td>";
+                            }
+                            else{
                                 echo "<td class='text-right'>" . $data[$i] . "</td>";
                             }
                         }

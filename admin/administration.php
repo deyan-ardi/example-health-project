@@ -32,7 +32,7 @@ if (!isset($_SESSION['user'])) {
                                 include 'pages/dashboard.php';
                                 break;
                         case 'manage_admin':
-                            include 'pages/manage_admin.php';
+                                include 'pages/manage_admin.php';
                                 break;
                         default:
                                 break;
