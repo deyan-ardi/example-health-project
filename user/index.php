@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <?php include('component/_header.php') ?>
+  <?php require_once 'component/_header.php' ?>
   <title>RUSSEL STREET MEDICAL CENTRE - HOME</title>
 </head>
 
 <body>
   <!-- nav-bar  -->
-  <?php include('component/_navbar.php') ?>
+  <?php require_once 'component/_navbar.php' ?>
   <!-- End nav-bar  -->
 
   <!-- web Section  -->
@@ -156,7 +156,7 @@
     <a href="booking" type="button" class="contact-button">Booking Now!!</a>
   </section>
   <!-- End contact Section  -->
-  <?php include('component/_footer.php') ?>
+  <?php require_once 'component/_footer.php' ?>
 </body>
 
 </html>

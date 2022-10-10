@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <?php include('component/_header.php') ?>
+  <?php require_once 'component/_header.php' ?>
   <title>RUSSEL STREET MEDICAL CENTRE - BOOKING</title>
 </head>
 
 <body>
   <!-- nav-bar  -->
-  <?php include('component/_navbar.php') ?>
+  <?php require_once 'component/_navbar.php'  ?>
   <!-- End nav-bar  -->
 
 
@@ -84,8 +84,8 @@
     </div>
   </section>
   <!-- End Booking Page -->
-  <?php include('component/_footer.php') ?>
-  <?php include('component/_customJs.php') ?>
+  <?php require_once 'component/_footer.php' ?>
+  <?php require_once 'component/_customJs.php' ?>
 </body>
 
 </html>

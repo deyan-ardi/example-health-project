@@ -18,32 +18,32 @@ if (!isset($_SESSION['user'])) {
 <html lang="en">
 
 <head>
-    <?php include('component/_header.php') ?>
+    <?php require_once 'component/_header.php' ?>
     <title>RUSSEL STREET MEDICAL CENTRE - <?= $title ?></title>
 </head>
 
 <body>
     <div class="wrapper">
-    <?php include('component/_sidebar.php') ?>
+    <?php require_once 'component/_sidebar.php' ?>
     <?php
         if (isset($_REQUEST['page'])) {
                 switch ($_REQUEST['page']) {
                         case 'dashboard':
-                                include 'pages/dashboard.php';
+                                require_once 'pages/dashboard.php';
                                 break;
                         case 'manage_admin':
-                                include 'pages/manage_admin.php';
+                                require_once 'pages/manage_admin.php';
                                 break;
                         default:
                                 break;
                 }
         } else {
-            include('pages/dashboard.php') ;
+            require_once 'pages/dashboard.php'  ;
         }
         ?>
     </div>
 
-    <?php include('component/_footer.php') ?>
+    <?php require_once 'component/_footer.php'  ?>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once("../config/config.php");
+require_once "../config/config.php";
 if (isset($_REQUEST['page'])) {
     if ($_REQUEST['page'] == 'dashboard') {
         $classDashboard = "active";

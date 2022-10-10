@@ -1,4 +1,4 @@
-<?php include('../config/config.php'); ?>
+<?php require_once '../config/config.php'; ?>
 
 <section id="nav-bar" class="container">
     <header class="nav-bar">
