@@ -6,3 +6,14 @@
 <link rel="stylesheet" href="../assets/css/admin/style.css">
 <link rel="shortcut icon" href="../assets/img/logo.ico" type="image/x-icon">
 <link rel="stylesheet" href="../asset/css/admin/bootstrap.min.css">
+<?php
+if (isset($_REQUEST['page'])) {
+    if ($_REQUEST['page'] == 'dashboard') {
+        $title = "DASHBOARD";
+    } else {
+        $title='ADMINISTRATOR';
+    }
+} else {
+    $title = "";
+}
+?>

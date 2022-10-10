@@ -1,5 +1,5 @@
 <?php
-include('../services/generateDateFormatService.php');
+require_once '../services/generateDateFormatService.php';
 
 use services\generateDateFormatService;
 

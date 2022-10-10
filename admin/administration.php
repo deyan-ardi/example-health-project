@@ -19,7 +19,7 @@ if (!isset($_SESSION['user'])) {
 
 <head>
     <?php include('component/_header.php') ?>
-    <title>RUSSEL STREET MEDICAL CENTRE - ADMINISTRATOR</title>
+    <title>RUSSEL STREET MEDICAL CENTRE - <?= $title ?></title>
 </head>
 
 <body>
