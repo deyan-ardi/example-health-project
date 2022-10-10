@@ -1,4 +1,5 @@
 <?php
+require_once("../config/config.php");
 if (isset($_REQUEST['page'])) {
     if ($_REQUEST['page'] == 'dashboard') {
         $classDashboard = "active";
@@ -25,13 +26,13 @@ if (isset($_REQUEST['page'])) {
         </div>
     </div>
     <div class="sidebar-grid">
-        <a href="administration?page=dashboard" class="<?= $classDashboard ?>">
+        <a href="<?= $config['base_url']; ?>/admin/administration?page=dashboard" class="<?= $classDashboard ?>">
             <span class="material-icons-sharp">
                 grid_view
             </span>
             <h3>Dashboard</h3>
         </a>
-        <a href="administration?page=manage_admin" class="<?= $classAdmin ?>">
+        <a href="<?= $config['base_url']; ?>/admin/administration?page=manage_admin" class="<?= $classAdmin ?>">
             <span class="material-icons-sharp">
                 manage_accounts
             </span>
