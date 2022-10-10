@@ -69,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</div>
 		</div>
 	</section>
-
 	<script src="../assets/js/admin/login.js"></script>
 </body>
 

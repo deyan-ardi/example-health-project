@@ -196,9 +196,8 @@ aside .sidebar-grid a {
   transition: all 300ms ease;
 }
 
-.center{
+.center {
   text-align: center;
-  
 }
 
 aside .sidebar-grid a span {
@@ -232,6 +231,16 @@ aside .sidebar-grid a.active span {
 
 aside .sidebar-grid a:hover {
   color: var(--color-primary);
+}
+
+aside .sidebar-grid a form button:hover {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+aside .sidebar-grid a form button {
+  background-color: transparent;
+  cursor: pointer;
 }
 
 aside .sidebar-grid a:hover span {
@@ -278,6 +287,10 @@ main .informations > div span {
   font-size: 2rem;
 }
 
+main .informations > div.greeting span {
+  background: var(--color-primary);
+}
+
 main .informations > div.admin span {
   background: var(--color-warning);
 }
@@ -290,6 +303,21 @@ main .informations > div .middle {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+main .informations .middle .item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 0.7rem;
+  transition: all 300ms ease;
+}
+
+main .informations .middle .right {
+  align-items: start;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
 }
 
 main .informations h3 {
@@ -316,7 +344,6 @@ main .informations small {
 
 main .recent-order {
   margin-top: 2rem;
-
 }
 
 main .recent-order h2 {
@@ -331,11 +358,9 @@ main .recent-order table {
   text-align: center;
   box-shadow: var(--box-shadow);
   transition: all 300ms ease;
-  
 }
 
-main .recent-order table thead th
-{
+main .recent-order table thead th {
   background: white;
   position: sticky;
   top: 0;
@@ -344,12 +369,13 @@ main .recent-order table thead th
 
 main .recent-order table tbody {
   display: block;
-  height: 300px; 
+  height: 300px;
   overflow-y: scroll;
   scrollbar-color: #d4aa70 #e4e4e4;
 }
 
-main .recent-order table thead, tbody tr {
+main .recent-order table thead,
+tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -357,7 +383,6 @@ main .recent-order table thead, tbody tr {
 
 main .recent-order table tbody tr td {
   table-layout: fixed;
-
 }
 main .recent-order table .text-right {
   text-align: left;
@@ -373,8 +398,8 @@ main table tbody td {
   color: var(--color-dark-variant);
 }
 
-main table{
-    max-height: 150px;
+main table {
+  max-height: 150px;
 }
 
 main table tbody tr:last-child td {
@@ -407,33 +432,6 @@ main .recent-order a {
   gap: 2rem;
 }
 
-.right .recent-updates {
-  margin-top: 1rem;
-}
-
-.right .recent-updates h2 {
-  margin-bottom: 0.8rem;
-}
-
-.right .recent-updates .updates {
-  background: var(--color-white);
-  padding: var(--card-padding);
-  border-radius: var(--card-border-radius);
-  box-shadow: var(--box-shadow);
-  transition: all 300ms ease;
-}
-
-.right .recent-updates .updates:hover {
-  box-shadow: none;
-}
-
-.right .recent-updates .updates .update {
-  display: grid;
-  grid-template-columns: 2.6rem auto;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
 .right .add-new {
   margin-top: 2rem;
 }
@@ -455,32 +453,31 @@ main .recent-order a {
 }
 
 .right .add-new .item .right button {
-    padding: 0;
-    border: none;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 5px;
-    width: 100%;
-    color: white;
-    margin-top: 10px;
-  }
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  color: white;
+  margin-top: 10px;
+}
 
 .right .add-new .item .right button:focus {
-    outline: 0;
-  }
+  outline: 0;
+}
 
-  .right .add-new .item .right .button-two:hover {
-    box-shadow: 0 3px 6px black;
-  }
+.right .add-new .item .right .button-two:hover {
+  box-shadow: 0 3px 6px black;
+}
 
-  .right .add-new .item .right .button-two {
-    padding: 10px 15px;
-    background-color: var(--color-primary);
-    border-radius: 5px;
-  }
-  
+.right .add-new .item .right .button-two {
+  padding: 10px 15px;
+  background-color: var(--color-primary);
+  border-radius: 5px;
+}
 
 .right .add-new .item .right {
   align-items: start;
@@ -503,30 +500,6 @@ main .recent-order a {
 
 .right .add-new .item.person .icon {
   background: var(--color-warning);
-}
-
-.right .add-new .add-product {
-  background: transparent;
-  border: 2px dashed var(--color-primary);
-  color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.right .add-new .add-product div {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.right .add-new .add-product div h3 {
-  font-weight: 600;
-}
-
-.right .add-new .add-product:hover {
-  background: var(--color-primary);
-  color: white;
 }
 
 @media screen and (max-width: 1500px) {
@@ -583,9 +556,8 @@ main .recent-order a {
     padding-top: 5rem;
   }
 
-
   main .recent-order table {
-    width: 80vw; 
+    width: 80vw;
   }
 
   main table thead tr th:last-child,

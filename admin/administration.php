@@ -38,7 +38,7 @@ if (!isset($_SESSION['user'])) {
                                 break;
                 }
         } else {
-            include('pages/manage_admin.php') ;
+            include('pages/dashboard.php') ;
         }
         ?>
     </div>
