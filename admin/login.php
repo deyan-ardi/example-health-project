@@ -42,14 +42,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 							<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" class="needs-validation" novalidate="" autocomplete="off">
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="username">Username</label>
-									<input id="username" type="text" class="form-control text-capitalize" name="username" value="" required autofocus>
+									<input id="username" type="text" class="form-control text-capitalize" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; } ?>" required autofocus>
 									<div class="invalid-feedback">
 										Username is required
 									</div>
 								</div>
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="password">Password</label>
-									<input id="password" type="password" class="form-control" name="password" required>
+									<input id="password" type="password" class="form-control" name="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" required>
 									<div class="invalid-feedback">
 										Password is required
 									</div>

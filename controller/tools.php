@@ -24,7 +24,7 @@ class Tools
             $_SESSION['user'] = true;
             if($_POST["remember"]=='1' || $_POST["remember"]=='on')
             {
-            $hour = time() + 3600 * 24 * 30;
+            $hour = time() + 3600;
             setcookie('username', $this->username, $hour);
             setcookie('password', $this->password, $hour);
             header("Location: administration?page=dashboard");
@@ -50,6 +50,8 @@ class Tools
     {
         if (isset($_POST['logout'])) {
             session_start();
+            setcookie("username","");
+            setcookie("password","");
             session_unset();
             header("Location: ../admin/login.php");
             die();
