@@ -15,7 +15,7 @@ if (isset($_REQUEST['page'])) {
 <aside>
     <div class="top">
         <div class="logo">
-            <img src="../assets/img/logo-text-less.png" alt="logo" width="100">
+            <img src="../assets/img/logo-text-less.png" alt="logo">
             <h3>Russel Street Medical Centre</h3>
         </div>
         <div class="close" id="close-btn">

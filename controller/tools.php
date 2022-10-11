@@ -22,6 +22,14 @@ class Tools
             $_SESSION['username'] = $this->username;
             $_SESSION['password'] = $this->password;
             $_SESSION['user'] = true;
+            if($_POST["remember"]=='1' || $_POST["remember"]=='on')
+            {
+            $hour = time() + 3600 * 24 * 30;
+            setcookie('username', $this->username, $hour);
+            setcookie('password', $this->password, $hour);
+            header("Location: administration?page=dashboard");
+            die();
+            }
             header("Location: administration?page=dashboard");
             die();
         } else {

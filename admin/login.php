@@ -55,6 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									</div>
 								</div>
 								<div class="d-flex align-items-center">
+								<div class="form-check">
+										<input type="checkbox" name="remember" id="remember" class="form-check-input" value="1">
+										<label for="remember" class="form-check-label">Remember Me</label>
+									</div>
 									<button type="submit" class="btn btn-primary ms-auto">
 										Login
 									</button>
