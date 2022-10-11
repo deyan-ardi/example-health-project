@@ -1,5 +1,5 @@
 <?php
-include('../services/generateDateFormatService.php');
+require_once('../services/generateDateFormatService.php');
 
 use services\generateDateFormatService;
 
@@ -10,20 +10,20 @@ $date = new generateDateFormatService;
 	<div class="informations">
 		<div class="greeting">
 			<div class="middle">
-            <div class="item">
+				<div class="item">
 					<div class="icon">
 						<span class="material-icons-sharp">
-                            waving_hand
+							waving_hand
 						</span>
 					</div>
 					<div class="right">
 						<div class="info">
 							<h2 class="text-capitalize">
-                                <?php
-                                echo $_SESSION['username'];
-                                ?>
-                            </h2>
-                            <small class="text-muted">RSMC </small>
+								<?php
+								echo $_SESSION['username'];
+								?>
+							</h2>
+							<small class="text-muted">RSMC </small>
 						</div>
 					</div>
 				</div>
@@ -34,26 +34,26 @@ $date = new generateDateFormatService;
 		</div>
 		<div class="admin">
 			<div class="middle">
-            <div class="item">
+				<div class="item">
 					<div class="icon">
 						<span class="material-icons-sharp">
-                            manage_accounts
+							manage_accounts
 						</span>
 					</div>
 					<div class="right">
 						<div class="info">
-                        <?php
-                        $file_to_read = fopen("../database/users.txt", "r");
-                        $total = 0;
-                        if ($file_to_read !== FALSE) {
-                            while (($data = fgetcsv($file_to_read, 100, ',')) !== FALSE) {
-                                $total++;
-                            }
-                            echo '<h2>' . $total . '</h2>';
-                            echo '<small class="text-muted">ADMINISTRATORS</small>';
-                            fclose($file_to_read);
-                        }
-                        ?>
+							<?php
+							$file_to_read = fopen("../database/users.txt", "r");
+							$total = 0;
+							if ($file_to_read !== FALSE) {
+								while (($data = fgetcsv($file_to_read, 100, ',')) !== FALSE) {
+									$total++;
+								}
+								echo '<h2>' . $total . '</h2>';
+								echo '<small class="text-muted">ADMINISTRATORS</small>';
+								fclose($file_to_read);
+							}
+							?>
 						</div>
 					</div>
 				</div>
@@ -64,13 +64,13 @@ $date = new generateDateFormatService;
 				<div class="item">
 					<div class="icon">
 						<span class="material-icons-sharp">
-                            receipt_long
+							receipt_long
 						</span>
 					</div>
 					<div class="right">
 						<div class="info">
 							<h2>14</h2>
-                            <small class="text-muted">BOOKING LISTS</small>
+							<small class="text-muted">BOOKING LISTS</small>
 						</div>
 					</div>
 				</div>
@@ -91,22 +91,22 @@ $date = new generateDateFormatService;
 			</thead>
 			<tbody>
 				<?php
-                $file_to_read = fopen("../database/users.txt", "r");
-                if ($file_to_read !== FALSE) {
-                    while (($data = fgetcsv($file_to_read, 100, ',')) !== FALSE) {
-                        echo "<tr>";
-                        for ($i = 0; $i < count($data); $i++) {
-                            if ($i == 3) {
-                                echo "<td class='text-right'>" . $date->format($data[$i]) . "</td>";
-                            } else {
-                                echo "<td class='text-right'>" . $data[$i] . "</td>";
-                            }
-                        }
-                        echo "</tr>\n";
-                    }
-                    fclose($file_to_read);
-                }
-                ?>
+				$file_to_read = fopen("../database/users.txt", "r");
+				if ($file_to_read !== FALSE) {
+					while (($data = fgetcsv($file_to_read, 100, ',')) !== FALSE) {
+						echo "<tr>";
+						for ($i = 0; $i < count($data); $i++) {
+							if ($i == 3) {
+								echo "<td class='text-right'>" . $date->format($data[$i]) . "</td>";
+							} else {
+								echo "<td class='text-right'>" . $data[$i] . "</td>";
+							}
+						}
+						echo "</tr>\n";
+					}
+					fclose($file_to_read);
+				}
+				?>
 			</tbody>
 		</table>
 	</div>
@@ -161,5 +161,4 @@ $date = new generateDateFormatService;
 			</div>
 		</div>
 	</div>
-</div>
 </div>

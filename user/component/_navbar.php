@@ -20,7 +20,6 @@
                 <li class="active"><a href="#about">About</a></li>
                 <li><a href="#services">Who We Are</a></li>
                 <li><a href="<?= $config['base_url']; ?>/user/booking" class="<?= basename($_SERVER['SCRIPT_NAME']) == "booking.php" ? "active" : "" ?>">Booking</a></li>
-                <li><a href="<?= $config['base_url']; ?>/admin/login">Login</a></li>
             </ul>
         </div>
     </header>

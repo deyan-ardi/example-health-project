@@ -1,3 +1,17 @@
+<?php
+
+use controller\Appointments;
+
+require_once '../controller/appointments.php';
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+  $login = (new Appointments())->store();
+  die;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,11 +44,22 @@
   <!-- Booking Page -->
   <section id="booking-form" class="booking-form container">
     <div class="booking-form-info">
-      <form action="" method="POST">
+      <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
         <h1 class="booking-form-info-heading">Booking Form</h1>
         <div class="booking-form-info-desc pt-1">
-          <label class="form-label" for="pid">Patient ID</label>
-          <input type="text" id="pid" name="pid">
+          <?php
+          if (isset($_SESSION['message'])) {
+            echo $_SESSION['message'];
+          }
+          ?>
+        </div>
+        <div class="booking-form-info-desc pt-1">
+          <label class="form-label" for="first_name">First Name</label>
+          <input type="text" id="first_name" style="text-transform:capitalize; " name="first_name">
+        </div>
+        <div class="booking-form-info-desc pt-1">
+          <label class="form-label" for="last_name">Last Name</label>
+          <input type="text" id="last_name" style="text-transform:capitalize; " name="last_name">
         </div>
         <div class="booking-form-info-desc pt-1">
           <label class="form-label" for="date">Booking Date</label>
@@ -43,7 +68,7 @@
         <div class="booking-form-info-desc pt-1">
           <fieldset class="r-pill">
             <legend>
-              <label class="form-label" for="booking_time">Booking Date</label>
+              <label class="form-label" for="booking_time">Booking Time</label>
             </legend>
             <div class="r-pill__group">
               <span class="r-pill__item">
@@ -74,7 +99,7 @@
           </select>
           <p id="reason-desc"></p>
         </div>
-        <button type="submit" class="booking-form-info-button" value="Submit">Submit</button>
+        <button type="submit" class="booking-form-info-button" name="submit" value="Submit">Submit</button>
       </form>
     </div>
     <div class="booking-form-img">
