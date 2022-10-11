@@ -9,10 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     die;
 }
 
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) || !isset($_COOKIE["username"])) {
 	header("Location: ../admin/login.php");
 }
-
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
