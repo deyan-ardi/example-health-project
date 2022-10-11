@@ -50,10 +50,10 @@ $date = new generateDateFormatService;
 									$total++;
 								}
 								echo '<h2>' . $total . '</h2>';
-								echo '<small class="text-muted">ADMINISTRATORS</small>';
 								fclose($file_to_read);
 							}
 							?>
+							<small class="text-muted">ADMINISTRATORS</small>
 						</div>
 					</div>
 				</div>
@@ -69,7 +69,17 @@ $date = new generateDateFormatService;
 					</div>
 					<div class="right">
 						<div class="info">
-							<h2>14</h2>
+						<?php
+							$file_to_read = fopen("../database/appointments.txt", "r");
+							$total = 0;
+							if ($file_to_read !== FALSE) {
+								while (($data = fgetcsv($file_to_read, 100, ',')) !== FALSE) {
+									$total++;
+								}
+								echo '<h2>' . $total . '</h2>';
+								fclose($file_to_read);
+							}
+							?>
 							<small class="text-muted">BOOKING LISTS</small>
 						</div>
 					</div>
@@ -83,29 +93,28 @@ $date = new generateDateFormatService;
 		<table>
 			<thead>
 				<tr class="text-right">
-					<th>ID</th>
-					<th>Patient</th>
-					<th>Reason</th>
+					<th>Patient Id</th>
+					<th>Pantient's Name</th>
 					<th>Booking Date</th>
+					<th>Booking Time</th>
+					<th>Reason</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
-				$file_to_read = fopen("../database/users.txt", "r");
+				$file_to_read = fopen("../database/appointments.txt", "r");
 				if ($file_to_read !== FALSE) {
 					while (($data = fgetcsv($file_to_read, 100, ',')) !== FALSE) {
 						echo "<tr>";
-						for ($i = 0; $i < count($data); $i++) {
-							if ($i == 3) {
-								echo "<td class='text-right'>" . $date->format($data[$i]) . "</td>";
-							} else {
-								echo "<td class='text-right'>" . $data[$i] . "</td>";
-							}
+								echo "<td class='text-right'>" . $data[1] . "</td>";
+								echo "<td class='text-right'>" . $data[2] . " ".$data[3]. "</td>";
+								echo "<td class='text-right'>" . $date->format($data[4]) . "</td>";
+								echo "<td class='text-right'>" . str_replace(";", "<br>", $data[5]) . "</td>";
+								echo "<td class='text-right'>" . $data[6] . "</td>";
 						}
 						echo "</tr>\n";
 					}
 					fclose($file_to_read);
-				}
 				?>
 			</tbody>
 		</table>
