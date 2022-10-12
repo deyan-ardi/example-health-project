@@ -13,3 +13,4 @@
 
   <!-- General JS -->
   <script src="../assets/js/guest/app.js"></script>
+  <script src="../assets/js/guest/carousell.js"></script>

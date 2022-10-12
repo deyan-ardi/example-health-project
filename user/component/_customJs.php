@@ -34,5 +34,4 @@ appointment.`
           }
       };
   </script>
-
   

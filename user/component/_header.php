@@ -11,3 +11,4 @@
     <link rel="stylesheet" href="../assets/css/guest/responsive.css" />
     <link rel="shortcut icon" href="../assets/img/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/guest/radio-pill.css">
+    <link rel="stylesheet" href="../assets/css/guest/carousell.css">
