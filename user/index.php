@@ -73,7 +73,30 @@
     </div>
     <div class="about-img">
       <div class="about-img-wrapper">
-        <img src="../assets/img/aboutus.png" alt="" />
+        <div class="slider">
+            <div class="slide active">
+                <img src="../assets/img/aboutus.png" alt="">
+            </div>
+            <div class="slide">
+                <img src="../assets/img/img1.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="../assets/img/slider1.jpeg" alt="">
+            </div>
+            <div class="slide">
+                <img src="../assets/img/slider2.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="../assets/img/slider3.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="../assets/img/slider4.png" alt="">
+            </div>
+            <div class="navigation">
+                <i class="fas fa-chevron-left prev-btn"></i>
+                <i class="fas fa-chevron-right next-btn"></i>
+            </div>
+          </div>
       </div>
     </div>
   </section>
