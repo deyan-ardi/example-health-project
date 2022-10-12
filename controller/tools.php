@@ -96,7 +96,8 @@ class Tools
                 }
             }
             if (empty($name = $_POST['username']) || empty($password = $_POST['password']) || empty($password = $_POST['confirm_password'])) {
-                $_SESSION['message'] = '<div class="alert alert-danger">All fields cannot be empty</div>';
+                $_SESSION['message'] ='<div class="alert alert-danger">All fields cannot be empty</div>';
+                
                 header("Location: administration?page=manage_admin");
             } else {
                 if (!$status) {

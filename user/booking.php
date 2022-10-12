@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <?php
           if (isset($_SESSION['notification'])) {
             echo $_SESSION['notification'];
+            unset($_SESSION['notification']);
           }
           ?>
         </div>
