@@ -107,9 +107,9 @@ class Tools
                         $date = date("Y-m-d H:i:s");
                         $arrdata = array($id, $name, $password, $date);
                         $fp = fopen('../database/users.txt', 'a+');
-                        $create = fputcsv($fp, $arrdata);
-                                       
+                        $create = fputcsv($fp, $arrdata);    
                         fclose($fp);
+                        setcookie('new_data', $this->username, time() + 3600 * 24);
                         $_SESSION['message'] = '<div class="alert alert-success">Success, successfully input data into data record</div>';
                         header("Location: administration?page=manage_admin");
                     } else {

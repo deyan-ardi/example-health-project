@@ -157,7 +157,16 @@ $date = new generateDateFormatService;
 			</div>
 			<div class="right">
 				<div class="info">
-					<h3>OFFLINE ORDERS</h3>
+					<h3 class="text-capitalize">
+					<?php
+						if (isset($_COOKIE['new_data'])) {
+							echo $_COOKIE['new_data']. " has been added";
+						}
+						else{
+							echo "no new data";
+						}
+					?>
+					</h3>
 					<small class="text-muted">Last 24 Hours</small>
 				</div>
 			</div>
@@ -165,12 +174,12 @@ $date = new generateDateFormatService;
 		<div class="item person">
 			<div class="icon">
 				<span class="material-icons-sharp">
-					person
+					post_add
 				</span>
 			</div>
 			<div class="right">
 				<div class="info">
-					<h3>NEW CUSTOMERS</h3>
+					<h3>NEW BOOKING</h3>
 					<small class="text-muted">Last 24 Hours</small>
 				</div>
 			</div>

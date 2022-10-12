@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php
             if(isset($_COOKIE["reason"]))
             {
-              if ($_COOKIE["reason"]== "childhood vaccination shots") 
+              if ($_COOKIE["reason"] == "childhood vaccination shots") 
               {
                 echo "selected";
               }
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php
             if(isset($_COOKIE["reason"]))
             {
-              if ($_COOKIE["reason"]== "influenza shot")
+              if ($_COOKIE["reason"] == "influenza shot")
               {
                 echo "selected";
               }
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php 
             if(isset($_COOKIE["reason"]))
             {
-              if ($_COOKIE["reason"]== "covid booster shot")
+              if ($_COOKIE["reason"] == "covid booster shot")
               {
                 echo "selected";
                 }
@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php
             if(isset($_COOKIE["reason"]))
             {
-              if ($_COOKIE["reason"]== "bood test")
+              if ($_COOKIE["reason"] == "bood test")
               {
                 echo "selected";
               } 
