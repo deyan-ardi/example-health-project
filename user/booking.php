@@ -48,22 +48,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h1 class="booking-form-info-heading">Booking Form</h1>
         <div class="booking-form-info-desc pt-1">
           <?php
-          if (isset($_SESSION['message'])) {
-            echo $_SESSION['message'];
+          if (isset($_SESSION['notification'])) {
+            echo $_SESSION['notification'];
           }
           ?>
         </div>
         <div class="booking-form-info-desc pt-1">
           <label class="form-label" for="first_name">First Name</label>
-          <input type="text" id="first_name" style="text-transform:capitalize; " name="first_name">
+          <input type="text" id="first_name" style="text-transform:capitalize; " name="first_name" value="<?php if(isset($_COOKIE["first_name"])) { echo $_COOKIE["first_name"]; } ?>">
         </div>
         <div class="booking-form-info-desc pt-1">
           <label class="form-label" for="last_name">Last Name</label>
-          <input type="text" id="last_name" style="text-transform:capitalize; " name="last_name">
+          <input type="text" id="last_name" style="text-transform:capitalize; " name="last_name" value="<?php if(isset($_COOKIE["last_name"])) { echo $_COOKIE["last_name"]; } ?>">
         </div>
         <div class="booking-form-info-desc pt-1">
           <label class="form-label" for="date">Booking Date</label>
-          <input type="date" name="date" min="<?= date('Y-m-d'); ?>" id="date">
+          <input type="date" name="date" min="<?= date('Y-m-d'); ?>" id="date" value="<?php  if(isset($_COOKIE["date"])) { echo $_COOKIE["date"]; } ?>">
         </div>
         <div class="booking-form-info-desc pt-1">
           <fieldset class="r-pill">
@@ -72,17 +72,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </legend>
             <div class="r-pill__group">
               <span class="r-pill__item">
-                <input type="checkbox" id="booking_time" value="9am - 12pm" id="r1" name="time[]">
+                <input type="checkbox" id="booking_time" value="9am - 12pm" id="r1" name="time[]" <?php if(isset($_COOKIE["time"])) {if(strpos($_COOKIE["time"], '9am - 12pm')) {echo "checked";}}; ?>>
                 <label for="r1">9am - 12pm</label>
               </span>
 
               <span class="r-pill__item">
-                <input type="checkbox" id="booking_time" value="12pm - 3pm" id="r2" name="time[]">
+                <input type="checkbox" id="booking_time" value="12pm - 3pm" id="r2" name="time[]" <?php if(isset($_COOKIE["time"])) {if(strpos($_COOKIE["time"], '12pm - 3pm')) {echo "checked";}}; ?>>
                 <label for="r2">12pm - 3pm</label>
               </span>
 
               <span class="r-pill__item">
-                <input type="checkbox" id="booking_time" value="3pm - 6pm" id="r3" name="time[]">
+                <input type="checkbox" id="booking_time" value="3pm - 6pm" id="r3" name="time[]" <?php if(isset($_COOKIE["time"])) {if(strpos($_COOKIE["time"], '3pm - 6pm')) {echo "checked";}}; ?>>
                 <label for="r3">3pm - 6pm</label>
               </span>
             </div>
@@ -92,10 +92,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <label class="form-label" for="reason">Appointnment Reason</label>
           <select name="reason" id="reason" onchange="selectReason(this.value)">
             <option value="">--Please Select--</option>
-            <option value="Childhood Vaccination Shots">Childhood Vaccination Shots</option>
-            <option value="Influenza Shot">Influenza Shot</option>
-            <option value="Covid Booster Shot">Covid Booster Shot</option>
-            <option value="Blood Test">Blood Test</option>
+            <option value="Childhood Vaccination Shots" 
+            <?php
+            if(isset($_COOKIE["reason"]))
+            {
+              if ($_COOKIE["reason"]== "childhood vaccination shots") 
+              {
+                echo "selected";
+              }
+            } 
+            ?>>Childhood Vaccination Shots</option>
+            <option value="Influenza Shot"
+            <?php
+            if(isset($_COOKIE["reason"]))
+            {
+              if ($_COOKIE["reason"]== "influenza shot")
+              {
+                echo "selected";
+              }
+            }?> >Influenza Shot</option>
+            <option value="Covid Booster Shot"
+            <?php 
+            if(isset($_COOKIE["reason"]))
+            {
+              if ($_COOKIE["reason"]== "covid booster shot")
+              {
+                echo "selected";
+                }
+            }
+            ?>>Covid Booster Shot</option>
+            <option value="Blood Test"
+            <?php
+            if(isset($_COOKIE["reason"]))
+            {
+              if ($_COOKIE["reason"]== "bood test")
+              {
+                echo "selected";
+              } 
+            } ?>>Blood Test</option>
           </select>
           <p id="reason-desc"></p>
         </div>

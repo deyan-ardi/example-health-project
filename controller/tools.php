@@ -21,17 +21,19 @@ class Tools
         if ($this->verify()) {
             $_SESSION['username'] = $this->username;
             $_SESSION['password'] = $this->password;
+            $_SESSION['logged_in'] = date("jS M Y H:i");
             $_SESSION['user'] = true;
 
+            $hour = time() + 3600 * 3;
+            setcookie('status', true,$hour);
             if($_POST["remember"]=='1' || $_POST["remember"]=='on')
             {
-                $hour = time() + 3600 * 24;
                 setcookie('username', $this->username, $hour);
                 setcookie('password', $this->password, $hour);
                 header("Location: administration?page=dashboard");
                 die();
             }
-            
+
             header("Location: administration?page=dashboard");
             die();
 

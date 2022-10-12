@@ -22,7 +22,7 @@ class Appointments
         $this->time = $_POST['time'];
         $this->reason = @htmlentities(strtolower($_POST['reason']));
         $this->generateIdPatientService = new generateIdPatientService();
-        $_SESSION['message'] = '';
+        $_SESSION['notification'] = '';
     }
 
     public function store()
@@ -41,7 +41,13 @@ class Appointments
                 }
             }
             if (empty($this->first_name) || empty($this->last_name) || empty($this->date) || empty($this->time) || empty($this->reason)) {
-                $_SESSION['message'] = '<div style="color:red">Error : All fields cannot be empty</div>';
+                $hour = time() + 3600;
+                setcookie('first_name', $this->first_name, $hour);
+                setcookie('last_name', $this->last_name, $hour);
+                setcookie('date', $this->date, $hour);
+                setcookie('time', serialize($this->time), $hour);
+                setcookie('reason', $this->reason, $hour);
+                $_SESSION['notification'] = '<div style="color:red">Error : All fields cannot be empty</div>';
                 header("Location: booking");
             } else {
                 $count = count($this->time);
@@ -55,7 +61,12 @@ class Appointments
                 $create = fputcsv($fp, $arrdata);
 
                 fclose($fp);
-                $_SESSION['message'] = '<div style="color:green">Success : successfully input data into data record</div>';
+                setcookie('first_name', '');
+                setcookie('last_name', '');
+                setcookie('date', '');
+                setcookie('time', '');
+                setcookie('reason', '');
+                $_SESSION['notification'] = '<div style="color:green">Success : successfully input data into data record</div>';
                 header("Location: booking");
             }
         }

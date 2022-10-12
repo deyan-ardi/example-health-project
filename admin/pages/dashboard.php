@@ -129,24 +129,30 @@ $date = new generateDateFormatService;
 		</button>
 	</div>
 	<div class="add-new">
-		<h2>Recent Activity</h2>
+		<h2>Recent Activity & Update</h2>
 		<div class="item online">
 			<div class="icon">
 				<span class="material-icons-sharp">
-					shopping_cart
+					login
 				</span>
 			</div>
 			<div class="right">
 				<div class="info">
-					<h3>ONLINE ORDERS</h3>
-					<small class="text-muted">Last 24 Hours</small>
+					<h3>
+						<?php
+						if (isset($_SESSION['logged_in'])) {
+							echo $_SESSION['logged_in'];
+						}
+						?>
+					</h3>
+					<small class="text-muted">LOGGED IN</small>
 				</div>
 			</div>
 		</div>
 		<div class="item offline">
 			<div class="icon">
 				<span class="material-icons-sharp">
-					local_mall
+					person_add
 				</span>
 			</div>
 			<div class="right">
