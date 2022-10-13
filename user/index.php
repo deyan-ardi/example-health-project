@@ -156,7 +156,7 @@ require_once '../config/config.php';
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.1122528246683!2d149.578659115229!3d-33.420317680782574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b11e433671adf0f%3A0x7a978f57ca5f1f49!2sRussell%20Street%20Medical%20Centre!5e0!3m2!1sid!2sid!4v1665217622498!5m2!1sid!2sid" width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   <section id="contact" class="contact container">
     <h1 class="contact-heading">Want To Booking Services?</h1>
-    <a href="booking" type="button" class="contact-button">Booking Now!!</a>
+    <a href="booking.php" type="button" class="contact-button">Booking Now!!</a>
   </section>
   <!-- End contact Section  -->
   <?php require_once 'component/_footer.php' ?>

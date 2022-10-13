@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         We are open from Monday to Friday – 8.30am to 6.00pm Saturday – 9.00am
         to 12.00pm
       </p>
-      <a href="index" type="button" class="booking-web-info-button">HOME</a>
+      <a href="index.php" type="button" class="booking-web-info-button">HOME</a>
     </div>
   </section>
   <!-- End web Section  -->
