@@ -1,3 +1,6 @@
+<?php
+require_once '../config/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +28,7 @@
       <a href="#about" type="button" class="web-info-button">ABOUT US</a>
     </div>
     <div class="web-img">
-      <img src="../assets/img/img1.jpg" alt="" />
+      <img src="<?= $config['base_url']; ?>/assets/img/img1.jpg" alt="" />
     </div>
   </section>
   <!-- End web Section  -->
@@ -73,7 +76,7 @@
     </div>
     <div class="about-img">
       <div class="about-img-wrapper">
-        <img src="../assets/img/aboutus.png" alt="" />
+        <img src="<?= $config['base_url']; ?>/assets/img/aboutus.png" alt="" />
       </div>
     </div>
   </section>
@@ -96,7 +99,7 @@
           </div>
           <div class="service-back">
             <h1 class="service-back-heading">Dr. Abigale Laurentis</h1>
-            <img src="../assets/img/staff1.jpeg" width="200px" class="service-back-desc" alt="foto" />
+            <img src="<?= $config['base_url']; ?>/assets/img/staff1.jpeg" width="200px" class="service-back-desc" alt="foto" />
             <p class="service-back-desc">
               Abigale Laurentis completed her medical degree at the University
               of Queensland in 2013, where she also obtained a Bachelor of
@@ -115,7 +118,7 @@
           </div>
           <div class="service-back">
             <h1 class="service-back-heading">Dr. Stephen Hill</h1>
-            <img src="../assets/img/staff2.jpeg" width="200px" class="service-back-desc" alt="foto" />
+            <img src="<?= $config['base_url']; ?>/assets/img/staff2.jpeg" width="200px" class="service-back-desc" alt="foto" />
             <p class="service-back-desc">
               Stephen Hill graduated from Auckland University in New Zealand
               in 2014, and obtained his Fellowship from the Royal Australian
@@ -135,7 +138,7 @@
           </div>
           <div class="service-back">
             <h1 class="service-back-heading">Ms Kiyoko Tsu</h1>
-            <img src="../assets/img/staff3.jpeg" width="200px" class="service-back-desc" alt="foto" />
+            <img src="<?= $config['base_url']; ?>/assets/img/staff3.jpeg" width="200px" class="service-back-desc" alt="foto" />
             <p class="service-back-desc">
               Kiyoko Tsu completed her Bachelor of Nursing at the Yong Loo Lin
               School of Medicine in Singapor e in 2019. She is an accredited

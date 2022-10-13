@@ -4,7 +4,7 @@
     <header class="nav-bar">
         <div class="brand">
             <a href="#web">
-                <img src="../assets/img/logo-text-less.png" alt="Logo" width="80px" class="logo-image" />
+                <img src="<?= $config['base_url']; ?>/assets/img/logo-text-less.png" alt="Logo" width="80px" class="logo-image" />
             </a>
             <p class="logo-text">
                 RUSSEL STREET <br />
