@@ -6,7 +6,6 @@ require_once '../config/config.php';
 
 <head>
   <?php require_once 'component/_header.php' ?>
-  <title>RUSSEL STREET MEDICAL CENTRE - HOME</title>
 </head>
 
 <body>

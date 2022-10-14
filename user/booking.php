@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <head>
   <?php require_once 'component/_header.php' ?>
-  <title>RUSSEL STREET MEDICAL CENTRE - BOOKING</title>
 </head>
 
 <body>
@@ -44,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <!-- Booking Page -->
   <section id="booking-form" class="booking-form container">
     <div class="booking-form-info">
-      <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+      <form action="<?php echo $_SERVER['PHP_SELF'] ?>" onsubmit="client_validation()" method="POST">
         <h1 class="booking-form-info-heading">Booking Form</h1>
         <div class="booking-form-info-desc pt-1">
           <?php
@@ -59,18 +58,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <input type="text" id="first_name" style="text-transform:capitalize; " name="first_name" value="<?php if (isset($_COOKIE["first_name"])) {
                                                                                                             echo $_COOKIE["first_name"];
                                                                                                           } ?>">
+          <small class="text-danger" id="first-name-danger"></small>
+
         </div>
         <div class="booking-form-info-desc pt-1">
           <label class="form-label" for="last_name">Last Name</label>
           <input type="text" id="last_name" style="text-transform:capitalize; " name="last_name" value="<?php if (isset($_COOKIE["last_name"])) {
                                                                                                           echo $_COOKIE["last_name"];
                                                                                                         } ?>">
+          <small class="text-danger" id="last-name-danger"></small>
+
         </div>
         <div class="booking-form-info-desc pt-1">
           <label class="form-label" for="date">Booking Date</label>
           <input type="date" name="date" min="<?= date('Y-m-d'); ?>" id="date" value="<?php if (isset($_COOKIE["date"])) {
                                                                                         echo $_COOKIE["date"];
                                                                                       } ?>">
+          <small class="text-danger" id="date-danger"></small>
+
         </div>
         <div class="booking-form-info-desc pt-1">
           <fieldset class="r-pill">
@@ -106,6 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               </span>
             </div>
           </fieldset>
+          <small class="text-danger" id="time-danger"></small>
         </div>
         <div class="booking-form-info-desc pt-1">
           <label class="form-label" for="reason">Appointnment Reason</label>
@@ -138,9 +144,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                           }
                                         } ?>>Blood Test</option>
           </select>
+          <small class="text-danger" id="reason-danger"></small>
           <p id="reason-desc"></p>
         </div>
-        <button type="submit" class="booking-form-info-button" name="submit" value="Submit">Submit</button>
+        <button type="submit" formnovalidate class="booking-form-info-button" name="submit" value="Submit">Submit</button>
       </form>
     </div>
     <div class="booking-form-img">

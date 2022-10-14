@@ -42,10 +42,10 @@ class Appointments
             }
             if (empty($this->first_name) || empty($this->last_name) || empty($this->date) || empty($this->time) || empty($this->reason)) {
                 $hour = time() + 3600;
-                setcookie('first_name', $this->first_name, $hour);
-                setcookie('last_name', $this->last_name, $hour);
                 setcookie('date', $this->date, $hour);
                 setcookie('time', serialize($this->time), $hour);
+                setcookie('first_name', $this->first_name, $hour);
+                setcookie('last_name', $this->last_name, $hour);
                 setcookie('reason', $this->reason, $hour);
                 $_SESSION['notification'] = '<div style="color:red">Error : All fields cannot be empty</div>';
                 header("Location: booking.php");
@@ -56,15 +56,15 @@ class Appointments
                 $date = date('Y-m-d H:i:s');
                 $id = uniqid();
 
-                $arrdata = array($id, $id_patient, ucWords($this->first_name), ucWords($this->last_name), $this->date, $implode, $this->reason, $date);
+                $arrdata = array($id, $this->date, $implode, $id_patient, ucWords($this->first_name), ucWords($this->last_name), $this->reason, $date);
                 $fp = fopen('../database/appointments.txt', 'a+');
                 $create = fputcsv($fp, $arrdata);
 
                 fclose($fp);
-                setcookie('first_name', '');
-                setcookie('last_name', '');
                 setcookie('date', '');
                 setcookie('time', '');
+                setcookie('first_name', '');
+                setcookie('last_name', '');
                 setcookie('reason', '');
                 $_SESSION['notification'] = '<div style="color:green">Success : successfully input data into data record</div>';
                 header("Location: booking.php");
