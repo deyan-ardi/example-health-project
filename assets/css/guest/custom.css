@@ -24,6 +24,10 @@ html {
     justify-content: center;
 }
 
+.text-danger {
+    color: red !important;
+}
+
 /* MARGIN TOP*/
 .mt-1 {
     margin-top: 10px;
@@ -205,6 +209,6 @@ input[type=text], select, input[type=date] {
     box-sizing: border-box;
 }
 
-label .form-label{
+label .form-label {
     text-align: left !important;
 }
