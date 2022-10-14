@@ -48,7 +48,7 @@ class Appointments
                 setcookie('time', serialize($this->time), $hour);
                 setcookie('reason', $this->reason, $hour);
                 $_SESSION['notification'] = '<div style="color:red">Error : All fields cannot be empty</div>';
-                header("Location: booking");
+                header("Location: booking.php");
             } else {
                 $count = count($this->time);
                 $merge = array_merge($this->time);
@@ -67,7 +67,7 @@ class Appointments
                 setcookie('time', '');
                 setcookie('reason', '');
                 $_SESSION['notification'] = '<div style="color:green">Success : successfully input data into data record</div>';
-                header("Location: booking");
+                header("Location: booking.php");
             }
         }
     }

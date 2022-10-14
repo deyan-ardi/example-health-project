@@ -1,3 +1,4 @@
+<?php require_once '../config/config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,24 +26,24 @@
       <a href="#about" type="button" class="web-info-button">ABOUT US</a>
     </div>
     <div class="web-img">
-    <div class="slider">
+      <div class="slider">
         <div class="slide active">
-          <img src="../assets/img/img1.jpg" alt="">
+          <img src="<?= $config['base_url']; ?>/assets/img/img1.jpg" alt="">
         </div>
         <div class="slide">
-          <img src="../assets/img/aboutus.png" alt="">
+          <img src="<?= $config['base_url']; ?>/assets/img/aboutus.png" alt="">
         </div>
         <div class="slide">
-          <img src="../assets/img/slider1.jpeg" alt="">
+          <img src="<?= $config['base_url']; ?>/assets/img/slider1.jpeg" alt="">
         </div>
         <div class="slide">
-          <img src="../assets/img/slider2.jpg" alt="">
+          <img src="<?= $config['base_url']; ?>/assets/img/slider2.jpg" alt="">
         </div>
         <div class="slide">
-          <img src="../assets/img/slider3.jpg" alt="">
+          <img src="<?= $config['base_url']; ?>/assets/img/slider3.jpg" alt="">
         </div>
         <div class="slide">
-          <img src="../assets/img/slider4.png" alt="">
+          <img src="<?= $config['base_url']; ?>/assets/img/slider4.png" alt="">
         </div>
         <div class="navigation">
           <i class="fas fa-chevron-left prev-btn"></i>
@@ -96,7 +97,7 @@
     </div>
     <div class="about-img">
       <div class="about-img-wrapper">
-        <img src="../assets/img/aboutus.png" alt="" />
+        <img src="<?= $config['base_url']; ?>/assets/img/aboutus.png" alt="" />
       </div>
     </div>
   </section>
@@ -119,7 +120,7 @@
           </div>
           <div class="service-back">
             <h1 class="service-back-heading">Dr. Abigale Laurentis</h1>
-            <img src="../assets/img/staff1.jpeg" width="200px" class="service-back-desc" alt="foto" />
+            <img src="<?= $config['base_url']; ?>/assets/img/staff1.jpeg" width="200px" class="service-back-desc" alt="foto" />
             <p class="service-back-desc">
               Abigale Laurentis completed her medical degree at the University
               of Queensland in 2013, where she also obtained a Bachelor of
@@ -138,7 +139,7 @@
           </div>
           <div class="service-back">
             <h1 class="service-back-heading">Dr. Stephen Hill</h1>
-            <img src="../assets/img/staff2.jpeg" width="200px" class="service-back-desc" alt="foto" />
+            <img src="<?= $config['base_url']; ?>/assets/img/staff2.jpeg" width="200px" class="service-back-desc" alt="foto" />
             <p class="service-back-desc">
               Stephen Hill graduated from Auckland University in New Zealand
               in 2014, and obtained his Fellowship from the Royal Australian
@@ -158,7 +159,7 @@
           </div>
           <div class="service-back">
             <h1 class="service-back-heading">Ms Kiyoko Tsu</h1>
-            <img src="../assets/img/staff3.jpeg" width="200px" class="service-back-desc" alt="foto" />
+            <img src="<?= $config['base_url']; ?>/assets/img/staff3.jpeg" width="200px" class="service-back-desc" alt="foto" />
             <p class="service-back-desc">
               Kiyoko Tsu completed her Bachelor of Nursing at the Yong Loo Lin
               School of Medicine in Singapor e in 2019. She is an accredited
@@ -176,7 +177,7 @@
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.1122528246683!2d149.578659115229!3d-33.420317680782574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b11e433671adf0f%3A0x7a978f57ca5f1f49!2sRussell%20Street%20Medical%20Centre!5e0!3m2!1sid!2sid!4v1665217622498!5m2!1sid!2sid" width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   <section id="contact" class="contact container">
     <h1 class="contact-heading">Want To Booking Services?</h1>
-    <a href="booking" type="button" class="contact-button">Booking Now!!</a>
+    <a href="booking.php" type="button" class="contact-button">Booking Now!!</a>
   </section>
   <!-- End contact Section  -->
   <?php require_once 'component/_footer.php' ?>
