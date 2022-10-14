@@ -54,6 +54,10 @@ input {
   border: 1px solid rgb(48, 13, 207);
 }
 
+.text-danger {
+  color: red;
+}
+
 body {
   width: 100vw;
   height: 100vh;

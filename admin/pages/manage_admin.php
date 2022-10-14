@@ -53,22 +53,39 @@ $date = new generateDateFormatService;
 	<div class="add-new">
 		<h2>Add new</h2>
 		<?php
-        if (isset($_SESSION['message'])) {
-            echo $_SESSION['message'];
-			unset($_SESSION['message']);
-
-        }
-        ?>
+			if (isset($_SESSION['success'])) {
+				echo $_SESSION['success'];
+				unset($_SESSION['success']);
+			}
+		?>
 		<div class="item online">
 			<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" class="needs-validation" name="save"
 				novalidate="" autocomplete="off">
 				<div class="right">
 					<label for="username">Username</label>
-					<input type="text" class="input text-capitalize" name="username" id="username" />
+					<input type="text" class="input text-capitalize" name="username" id="username" value="<?php if(isset($_COOKIE["username_input"])) { echo $_COOKIE["username_input"]; } ?>"/>
+					<?php
+						if (isset($_SESSION['message'])) {
+							echo $_SESSION['message'];
+							unset($_SESSION['message']);
+						}
+					?>
 					<label for="password">Password</label>
-					<input type="password" class="input" name="password" id="password" />
+					<input type="password" class="input" name="password" id="password" value="<?php if(isset($_COOKIE["password_input"])) { echo $_COOKIE["password_input"]; } ?>"/>
+					<?php
+						if (isset($_SESSION['password_input'])) {
+							echo $_SESSION['password_input'];
+							unset($_SESSION['password_input']);
+						}
+					?>
 					<label for="confirm_password">Confirm Password</label>
 					<input type="password" class="input" name="confirm_password" id="confirm_password" />
+					<?php
+						if (isset($_SESSION['confirm_input'])) {
+							echo $_SESSION['confirm_input'];
+							unset($_SESSION['confirm_input']);
+						}
+					?>
 					<button class="button-two" type="submit" name="save">Add</button>
 			</form>
 		</div>
