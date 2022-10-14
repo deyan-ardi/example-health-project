@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 if (!isset($_SESSION['user']) || !isset($_COOKIE["status"]) && !isset($_COOKIE["username"])) {
-	header("Location: ../admin/login.php");
+    header("Location: ../admin/login.php");
 }
 ?>
 <!DOCTYPE HTML>
@@ -23,21 +23,21 @@ if (!isset($_SESSION['user']) || !isset($_COOKIE["status"]) && !isset($_COOKIE["
 
 <body>
     <div class="wrapper">
-    <?php require_once 'component/_sidebar.php' ?>
-    <?php
+        <?php require_once 'component/_sidebar.php' ?>
+        <?php
         if (isset($_REQUEST['page'])) {
-                switch ($_REQUEST['page']) {
-                        case 'dashboard':
-                                require_once 'pages/dashboard.php';
-                                break;
-                        case 'manage_admin':
-                                require_once 'pages/manage_admin.php';
-                                break;
-                        default:
-                                break;
-                }
+            switch ($_REQUEST['page']) {
+                case 'dashboard':
+                    require_once 'pages/dashboard.php';
+                    break;
+                case 'manage_admin':
+                    require_once 'pages/manage_admin.php';
+                    break;
+                default:
+                    break;
+            }
         } else {
-            require_once 'pages/dashboard.php'  ;
+            require_once 'pages/dashboard.php';
         }
         ?>
     </div>

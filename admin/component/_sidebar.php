@@ -13,9 +13,11 @@ if (isset($_REQUEST['page'])) {
 }
 ?>
 <aside>
+    <?php require_once '../config/config.php'; ?>
+
     <div class="top">
         <div class="logo">
-            <img src="../assets/img/logo-text-less.png" alt="logo">
+            <img src="<?= $config['base_url']; ?>/assets/img/logo-text-less.png" alt="logo">
             <h3>Russel Street Medical Centre</h3>
         </div>
         <div class="close" id="close-btn">
@@ -25,13 +27,13 @@ if (isset($_REQUEST['page'])) {
         </div>
     </div>
     <div class="sidebar-grid">
-        <a href="<?= $config['base_url']; ?>/admin/administration?page=dashboard" class="<?= $classDashboard ?>">
+        <a href="<?= $config['base_url']; ?>/admin/administration.php?page=dashboard" class="<?= $classDashboard ?>">
             <span class="material-icons-sharp">
                 grid_view
             </span>
             <h3>Dashboard</h3>
         </a>
-        <a href="<?= $config['base_url']; ?>/admin/administration?page=manage_admin" class="<?= $classAdmin ?>">
+        <a href="<?= $config['base_url']; ?>/admin/administration.php?page=manage_admin" class="<?= $classAdmin ?>">
             <span class="material-icons-sharp">
                 manage_accounts
             </span>
@@ -50,6 +52,6 @@ if (isset($_REQUEST['page'])) {
 			</form>';
             echo $logout;
             ?>
-		</a>
-	</div>
+        </a>
+    </div>
 </aside>

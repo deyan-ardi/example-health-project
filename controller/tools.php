@@ -30,11 +30,11 @@ class Tools
             {
                 setcookie('username', $this->username, $hour);
                 setcookie('password', $this->password, $hour);
-                header("Location: administration?page=dashboard");
+                header("Location: administration.php?page=dashboard");
                 die();
             }
 
-            header("Location: administration?page=dashboard");
+            header("Location: administration.php?page=dashboard");
             die();
 
         } else {
@@ -98,7 +98,7 @@ class Tools
             if (empty($name = $_POST['username']) || empty($password = $_POST['password']) || empty($password = $_POST['confirm_password'])) {
                 $_SESSION['message'] ='<div class="alert alert-danger">All fields cannot be empty</div>';
                 
-                header("Location: administration?page=manage_admin");
+                header("Location: administration.php?page=manage_admin");
             } else {
                 if (!$status) {
                     if ($_POST["password"] === $_POST["confirm_password"]) {
@@ -112,15 +112,15 @@ class Tools
                         fclose($fp);
                         setcookie('new_data', $this->username, time() + 3600 * 24);
                         $_SESSION['message'] = '<div class="alert alert-success">Success, successfully input data into data record</div>';
-                        header("Location: administration?page=manage_admin");
+                        header("Location: administration.php?page=manage_admin");
                     } else {
                         $_SESSION['message'] = '<div class="alert alert-danger">Failed, the password confirmation does not match</div>';
-                        header("Location: administration?page=manage_admin");
+                        header("Location: administration.php?page=manage_admin");
                     }
                 } else {
                     $name = $_POST['username'];
                     $_SESSION['message'] = '<div class="alert alert-danger">Oh snap! ' . $name . ' is already in the record data</div>';
-                    header("Location: administration?page=manage_admin");
+                    header("Location: administration.php?page=manage_admin");
                 }
             }
         }
