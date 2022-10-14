@@ -18,16 +18,15 @@ class Tools
 
     public function login()
     {
+        $hour = time() + 3600 * 3;
         if ($this->verify()) {
             $_SESSION['username'] = $this->username;
             $_SESSION['password'] = $this->password;
             $_SESSION['logged_in'] = date("jS M Y H:i");
             $_SESSION['user'] = true;
 
-            $hour = time() + 3600 * 3;
-            setcookie('status', true,$hour);
-            if($_POST["remember"]=='1' || $_POST["remember"]=='on')
-            {
+            setcookie('status', true, $hour);
+            if ($_POST["remember"] == '1' || $_POST["remember"] == 'on') {
                 setcookie('username', $this->username, $hour);
                 setcookie('password', $this->password, $hour);
                 header("Location: administration.php?page=dashboard");
@@ -36,7 +35,6 @@ class Tools
 
             header("Location: administration.php?page=dashboard");
             die();
-
         } else {
             $id = uniqid();
             $name = $_POST['username'];
@@ -56,8 +54,8 @@ class Tools
     {
         if (isset($_POST['logout'])) {
             session_start();
-            setcookie("username","");
-            setcookie("password","");
+            setcookie("username", "");
+            setcookie("password", "");
             session_unset();
             header("Location: ../admin/login.php");
             die();
@@ -72,15 +70,14 @@ class Tools
         foreach ($data as $row => $data) {
 
             $row_user = explode(',', $data);
-            $this->u = @trim(strtolower($row_user[1]),'"');
+            $this->u = @trim(strtolower($row_user[1]), '"');
             $this->p = @trim(strtolower($row_user[2]), "\r");
 
             if (strcmp($this->u, $this->username) === 0 && strcmp($this->p, $this->password) === 0) {
                 return true;
-            }
-            else if (strcmp($this->u, $this->username) !== 0 && strcmp($this->p, $this->password) !== 0) {
-                $_SESSION['password_error'] ='<div class="text-danger">Or your password is wrong</div>';
-                $_SESSION['username_error'] ='<div class="text-danger">Username not found</div>';
+            } else if (strcmp($this->u, $this->username) !== 0 && strcmp($this->p, $this->password) !== 0) {
+                $_SESSION['password_error'] = '<div class="text-danger">Or your password is wrong</div>';
+                $_SESSION['username_error'] = '<div class="text-danger">Username not found</div>';
             }
         }
         return false;
@@ -101,19 +98,16 @@ class Tools
                 }
             }
             if (empty($name = $_POST['username']) || empty($password = $_POST['password']) || empty($password = $_POST['confirm_password'])) {
-                setcookie('username_input', $this->username, time() + 1800);
-                setcookie('password_input', $this->password, time() + 1800);
-                if (empty($name = $_POST['username'])){
-                    $_SESSION['message'] ='<div style="color:red; padding-bottom: 5px;">Username cannot be empty</div>';
-                }
-                elseif (empty($password = $_POST['password'])){
-                    $_SESSION['password_input'] ='<div style="color:red; padding-bottom: 5px;">Password cannot be empty</div>';
-                }
-                elseif (empty($password = $_POST['confirm_password'])){
-                    $_SESSION['confirm_input'] ='<div style="color:red; padding-bottom: 5px;">Confirm Password cannot be empty</div>';
+                setcookie('username_input', $this->username, time() + 30);
+                setcookie('password_input', $this->password, time() + 30);
+                if (empty($name = $_POST['username'])) {
+                    $_SESSION['message'] = '<div style="color:red; padding-bottom: 5px;">Username cannot be empty</div>';
+                } elseif (empty($password = $_POST['password'])) {
+                    $_SESSION['password_input'] = '<div style="color:red; padding-bottom: 5px;">Password cannot be empty</div>';
+                } elseif (empty($password = $_POST['confirm_password'])) {
+                    $_SESSION['confirm_input'] = '<div style="color:red; padding-bottom: 5px;">Confirm Password cannot be empty</div>';
                 }
                 header("Location: administration.php?page=manage_admin");
-
             } else {
                 if (!$status) {
                     setcookie('username_input', "");
@@ -125,7 +119,7 @@ class Tools
                         $date = date("Y-m-d H:i:s");
                         $arrdata = array($id, $name, $password, $date);
                         $fp = fopen('../database/users.txt', 'a+');
-                        $create = fputcsv($fp, $arrdata);    
+                        $create = fputcsv($fp, $arrdata);
                         fclose($fp);
                         setcookie('new_data', $this->username, time() + 3600 * 24);
                         $_SESSION['success'] = '<div class="alert alert-success">Success, successfully input data into data record</div>';
