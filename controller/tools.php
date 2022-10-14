@@ -45,7 +45,8 @@ class Tools
             $fp = fopen('../database/accessattempts.txt', 'a+');
             $create = fputcsv($fp, $arrdata);
             fclose($fp);
-            $_SESSION['message'] = '<div class="alert alert-danger">Login failed, check your input</div>';
+            setcookie('username', $this->username, $hour);
+            setcookie('password', $this->password, $hour);
             header("Location: ../admin/login.php");
             die;
         }
@@ -77,6 +78,10 @@ class Tools
             if (strcmp($this->u, $this->username) === 0 && strcmp($this->p, $this->password) === 0) {
                 return true;
             }
+            else if (strcmp($this->u, $this->username) !== 0 && strcmp($this->p, $this->password) !== 0) {
+                $_SESSION['password_error'] ='<div class="text-danger">Or your password is wrong</div>';
+                $_SESSION['username_error'] ='<div class="text-danger">Username not found</div>';
+            }
         }
         return false;
     }
@@ -96,11 +101,23 @@ class Tools
                 }
             }
             if (empty($name = $_POST['username']) || empty($password = $_POST['password']) || empty($password = $_POST['confirm_password'])) {
-                $_SESSION['message'] ='<div class="alert alert-danger">All fields cannot be empty</div>';
-                
+                setcookie('username_input', $this->username, time() + 1800);
+                setcookie('password_input', $this->password, time() + 1800);
+                if (empty($name = $_POST['username'])){
+                    $_SESSION['message'] ='<div style="color:red; padding-bottom: 5px;">Username cannot be empty</div>';
+                }
+                elseif (empty($password = $_POST['password'])){
+                    $_SESSION['password_input'] ='<div style="color:red; padding-bottom: 5px;">Password cannot be empty</div>';
+                }
+                elseif (empty($password = $_POST['confirm_password'])){
+                    $_SESSION['confirm_input'] ='<div style="color:red; padding-bottom: 5px;">Confirm Password cannot be empty</div>';
+                }
                 header("Location: administration.php?page=manage_admin");
+
             } else {
                 if (!$status) {
+                    setcookie('username_input', "");
+                    setcookie('password_input', "");
                     if ($_POST["password"] === $_POST["confirm_password"]) {
                         $id = uniqid();
                         $name = $_POST['username'];
@@ -111,15 +128,15 @@ class Tools
                         $create = fputcsv($fp, $arrdata);    
                         fclose($fp);
                         setcookie('new_data', $this->username, time() + 3600 * 24);
-                        $_SESSION['message'] = '<div class="alert alert-success">Success, successfully input data into data record</div>';
+                        $_SESSION['success'] = '<div class="alert alert-success">Success, successfully input data into data record</div>';
                         header("Location: administration.php?page=manage_admin");
                     } else {
-                        $_SESSION['message'] = '<div class="alert alert-danger">Failed, the password confirmation does not match</div>';
+                        $_SESSION['confirm_input'] = '<div style="color:red; padding-bottom: 5px;">Password confirmation does not match</div>';
                         header("Location: administration.php?page=manage_admin");
                     }
                 } else {
                     $name = $_POST['username'];
-                    $_SESSION['message'] = '<div class="alert alert-danger">Oh snap! ' . $name . ' is already in the record data</div>';
+                    $_SESSION['message'] = '<div style="color:red; padding-bottom: 5px;">Oh snap! ' . $name . ' is already in the record data</div>';
                     header("Location: administration.php?page=manage_admin");
                 }
             }

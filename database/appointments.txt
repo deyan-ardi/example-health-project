@@ -2,3 +2,4 @@
 6346ba5da0250,KY53652U,Kim,"Yoo Jung",2022-10-27,"3pm - 6pm","blood test","2022-10-12 13:00:13"
 6346ba7032cfb,PB48L,Park,"Bo Young",2022-10-18,"9am - 12pm;12pm - 3pm;3pm - 6pm","childhood vaccination shots","2022-10-12 13:00:32"
 6346bb0ff0ddd,CJ85452X,Choi,"Ji Woo",2022-10-29,"9am - 12pm","covid booster shot","2022-10-12 13:03:11"
+6348ed229e933,AB233291T,Arya,Budi,2022-11-05,"9am - 12pm","childhood vaccination shots","2022-10-14 05:01:22"

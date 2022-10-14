@@ -31,19 +31,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					</div>
 					<div class="card shadow-lg">
 						<div class="card-body p-5">
-							<div class="text-center mb-2">
-								<?php
-								if (isset($_SESSION['message'])) {
-									echo $_SESSION['message'];
-									unset($_SESSION['message']);
-								}
-								?>
-							</div>
 							<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
 							<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" class="needs-validation" novalidate="" autocomplete="off">
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="username">Username</label>
 									<input id="username" type="text" class="form-control text-capitalize" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; } ?>" required autofocus>
+									<?php
+										if (isset($_SESSION['username_error'])) {
+											echo $_SESSION['username_error'];
+											unset($_SESSION['username_error']);
+										}
+										?>
 									<div class="invalid-feedback">
 										Username is required
 									</div>
@@ -51,6 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="password">Password</label>
 									<input id="password" type="password" class="form-control" name="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" required>
+									<?php
+										if (isset($_SESSION['password_error'])) {
+											echo $_SESSION['password_error'];
+											unset($_SESSION['password_error']);
+										}
+									?>
 									<div class="invalid-feedback">
 										Password is required
 									</div>

@@ -93,10 +93,10 @@ $date = new generateDateFormatService;
 		<table>
 			<thead>
 				<tr class="text-right">
-					<th>Patient Id</th>
-					<th>Pantient's Name</th>
 					<th>Booking Date</th>
 					<th>Booking Time</th>
+					<th>Patient Id</th>
+					<th>Pantient's Name</th>
 					<th>Reason</th>
 				</tr>
 			</thead>
@@ -106,11 +106,11 @@ $date = new generateDateFormatService;
 				if ($file_to_read !== FALSE) {
 					while (($data = fgetcsv($file_to_read, 100, ',')) !== FALSE) {
 						echo "<tr>";
-								echo "<td class='text-right'>" . $data[1] . "</td>";
-								echo "<td class='text-right'>" . $data[2] . " ".$data[3]. "</td>";
-								echo "<td class='text-right'>" . $date->format($data[4]) . "</td>";
-								echo "<td class='text-right'>" . str_replace(";", "<br>", $data[5]) . "</td>";
-								echo "<td class='text-right'>" . $data[6] . "</td>";
+							echo "<td class='text-right'>" . $date->format($data[1]) . "</td>";
+							echo "<td class='text-right'>" . str_replace(";", "<br>", $data[2]) . "</td>";
+							echo "<td class='text-right'>" . $data[3] . "</td>";
+							echo "<td class='text-right'>" . $data[4] . " ".$data[5]. "</td>";
+							echo "<td class='text-right'>" . $data[6] . "</td>";
 						}
 						echo "</tr>\n";
 					}
